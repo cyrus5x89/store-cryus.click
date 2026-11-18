@@ -112,7 +112,14 @@
   a { color: var(--accent-text); }
   h1, h2, .brand, .nav a, .eyebrow, td.price, figcaption strong, figcaption em { font-family: var(--display); font-weight: 400; letter-spacing: .01em; }
 
-  .demos { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
+  /* Samples: a sideways strip that scrolls with touch on phones and two-finger trackpad on macOS */
+  .demos { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; scrollbar-width: thin; margin: 0 -16px; padding: 4px 16px 16px; }
+  .demos > figure { flex: 0 0 176px; scroll-snap-align: start; }
+  .samples-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; margin: 0 0 12px; }
+  .samples-bar .note { margin: 0; }
+  .toggle { font: inherit; font-size: 14px; color: var(--accent-text); background: var(--surface); border: 1px solid var(--glass-border); border-radius: 999px; padding: 8px 16px; cursor: pointer; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .toggle:hover, .toggle:focus-visible { border-color: var(--accent); }
+  [hidden] { display: none !important; }
   figure { margin: 0; display: flex; flex-direction: column; transition: transform .25s ease; }
   @media (hover: hover) { figure:hover { transform: translateY(-3px); } }
   .frame { position: relative; aspect-ratio: 9 / 16; background: #000; }
@@ -165,6 +172,7 @@
     th:nth-child(4), td:nth-child(4) { display: none; }
     .cols { grid-template-columns: 1fr; }
     .demos { gap: 12px; }
+    .demos > figure { flex-basis: 62vw; max-width: 220px; }
     .panel { padding: 16px 16px; }
     .table-wrap { padding: 8px; }
   }
@@ -194,8 +202,11 @@
 
   <section id="edit" class="page active">
     <h2>Samples</h2>
-    <p class="note">Hosted on Google Drive. Tap a card to play.</p>
-    <div class="demos">
+    <div class="samples-bar">
+      <p class="note">Hosted on Google Drive. Swipe sideways, then tap a card to play.</p>
+      <button class="toggle" type="button" aria-expanded="true" aria-controls="samples" data-show="Expand" data-hide="Collapse">Collapse</button>
+    </div>
+    <div id="samples" class="demos">
       <figure class="glass">
         <div class="frame lite" data-id="1p9pjjGPeXxyqA8S3aKXoraft8uNAAS96" role="button" tabindex="0" aria-label="Play UGC sample" style="--poster: url(posters/ugc.jpg)"></div>
         <figcaption><strong>UGC</strong><span>Real presenter, captions, product call-outs</span><em>From $10</em></figcaption>
@@ -332,6 +343,17 @@
   }
   addEventListener('hashchange', function () { showPage(true); });
   showPage(false);
+
+  // Collapse / expand the samples strip.
+  document.querySelectorAll('.toggle').forEach(function (btn) {
+    var box = document.getElementById(btn.getAttribute('aria-controls'));
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', String(open));
+      box.hidden = !open;
+      btn.textContent = open ? btn.dataset.hide : btn.dataset.show;
+    });
+  });
 
   // Lite embed: ảnh poster trước, trình phát Drive chỉ tải khi bấm.
   document.querySelectorAll('.frame.lite').forEach(function (el) {
