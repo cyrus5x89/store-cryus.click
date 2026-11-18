@@ -112,6 +112,10 @@
   }
   .frame.lite:hover::after, .frame.lite:focus-visible::after { background-color: rgba(2, 2, 2, .65); }
   .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .lightbox { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 16px; background: rgba(2, 2, 2, .9); }
+  .lightbox-frame { position: relative; height: min(82vh, (100vw - 32px) * 16 / 9); aspect-ratio: 9 / 16; background: #000; border-radius: 18px; overflow: hidden; }
+  .lightbox-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .lightbox-close { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--glass-border); background: var(--surface); color: var(--fg); font: inherit; font-size: 26px; line-height: 1; cursor: pointer; }
   figcaption { flex: 1; display: flex; flex-direction: column; padding: 12px 14px 14px; }
   figcaption strong { display: block; font-size: 16px; }
   figcaption span { display: block; color: var(--muted); font-size: 14px; }
@@ -342,6 +346,19 @@
   });
 
   // Lite embed: ảnh poster trước, trình phát Drive chỉ tải khi bấm.
+  var box = document.createElement('div');
+  box.className = 'lightbox';
+  box.hidden = true;
+  box.innerHTML = '<div class="lightbox-frame"></div><button class="lightbox-close" type="button" aria-label="Close">&times;</button>';
+  document.body.appendChild(box);
+  function closeBox() {
+    box.hidden = true;
+    box.querySelector('.lightbox-frame').replaceChildren();
+  }
+  box.addEventListener('click', function (e) { if (e.target === box) closeBox(); });
+  box.querySelector('.lightbox-close').addEventListener('click', closeBox);
+  addEventListener('keydown', function (e) { if (e.key === 'Escape' && !box.hidden) closeBox(); });
+
   document.querySelectorAll('div.frame.lite').forEach(function (el) {
     function open() {
       var f = document.createElement('iframe');
@@ -349,23 +366,12 @@
       f.allow = 'autoplay; fullscreen';
       f.allowFullscreen = true;
       f.title = el.getAttribute('aria-label');
-      // Drive lays out its player for a phone-size viewport: render at 360x640, then scale to the card.
-      f.style.cssText = 'position:absolute;top:0;left:0;width:360px;height:640px;border:0';
-      f.style.zoom = el.clientWidth / 360;
-      el.classList.remove('lite');
-      el.removeAttribute('role');
-      el.removeAttribute('tabindex');
-      el.replaceChildren(f);
+      box.querySelector('.lightbox-frame').replaceChildren(f);
+      box.hidden = false;
     }
     el.addEventListener('click', open);
     el.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
-    });
-  });
-
-  addEventListener('resize', function () {
-    document.querySelectorAll('div.frame > iframe').forEach(function (f) {
-      f.style.zoom = f.parentNode.clientWidth / 360;
     });
   });
 
