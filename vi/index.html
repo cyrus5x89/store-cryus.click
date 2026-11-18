@@ -7,6 +7,7 @@
 <meta name="description" content="Dịch vụ dựng video và sản xuất video AI: mẫu, bảng giá (USD) và quy trình.">
 <style>
   :root {
+    --grid: 48px;
     --bg: #f7f7f5; --surface: #ffffff; --fg: #111; --muted: #66666c; --line: #e2e2de; --accent: #d7262e;
   }
   @media (prefers-color-scheme: dark) {
@@ -15,25 +16,31 @@
   :root[data-theme="dark"] { --bg: #0e0e10; --surface: #17171a; --fg: #f2f2f4; --muted: #9a9aa2; --line: #2a2a30; --accent: #ff4d55; }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  main { max-width: 880px; margin: 0 auto; padding: 56px 16px 40px; }
+  main { max-width: 880px; margin: 0 auto; padding: var(--grid) 16px; }
   .lang { font-size: 14px; color: var(--muted); margin: 0 0 24px; }
   .lang a { color: var(--muted); }
   .lang strong { color: var(--fg); }
   .eyebrow { margin: 0 0 8px; color: var(--accent); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
   h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; margin: 0 0 12px; letter-spacing: -.01em; }
-  h2 { font-size: 20px; margin: 56px 0 6px; }
+  h2 { font-size: 20px; margin: var(--grid) 0 12px; }
   .lead { color: var(--muted); margin: 0; max-width: 60ch; }
   .note { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
   a { color: var(--accent); }
 
-  .demos { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; margin-top: 20px; }
-  figure { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .demos { display: grid; grid-template-columns: repeat(auto-fill, minmax(192px, 1fr)); gap: 16px; }
+  figure { margin: 0; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
   .frame { position: relative; aspect-ratio: 9 / 16; background: #000; }
+  .frame.lite { cursor: pointer; background: #000 var(--poster) center / cover no-repeat; }
+  .frame.lite::after {
+    content: ""; position: absolute; left: 50%; top: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px;
+    border-radius: 50%; background: rgba(0, 0, 0, .55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M8 5v14l11-7z'/%3E%3C/svg%3E") no-repeat center / 26px;
+  }
+  .frame.lite:hover::after, .frame.lite:focus-visible::after { background-color: rgba(0, 0, 0, .75); }
   .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-  figcaption { padding: 12px 14px 14px; }
+  figcaption { flex: 1; display: flex; flex-direction: column; padding: 12px 14px 14px; }
   figcaption strong { display: block; font-size: 16px; }
   figcaption span { display: block; color: var(--muted); font-size: 14px; }
-  figcaption em { display: inline-block; margin-top: 8px; font-style: normal; font-weight: 600; font-size: 14px; color: var(--accent); }
+  figcaption em { margin-top: auto; padding-top: 8px; font-style: normal; font-weight: 600; font-size: 14px; color: var(--accent); }
 
   table { width: 100%; border-collapse: collapse; margin-top: 8px; }
   th, td { text-align: left; padding: 14px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -50,7 +57,7 @@
   li strong { color: var(--fg); }
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .contact { margin-top: 8px; font-size: 18px; font-weight: 600; }
-  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  footer { margin-top: var(--grid); padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
 
   @media (max-width: 560px) {
     main { padding: 40px 16px 32px; }
@@ -69,22 +76,22 @@
   </header>
 
   <h2>Video thực tế</h2>
-  <p class="note">Video lưu trên Google Drive. Bấm nút phát trên từng khung để xem.</p>
+  <p class="note">Video lưu trên Google Drive. Bấm vào khung để xem.</p>
   <div class="demos">
     <figure>
-      <div class="frame"><iframe src="https://drive.google.com/file/d/1p9pjjGPeXxyqA8S3aKXoraft8uNAAS96/preview" allow="autoplay; fullscreen" allowfullscreen title="Mẫu UGC"></iframe></div>
+      <div class="frame lite" data-id="1p9pjjGPeXxyqA8S3aKXoraft8uNAAS96" role="button" tabindex="0" aria-label="Xem mẫu UGC" style="--poster: url(../posters/ugc.jpg)"></div>
       <figcaption><strong>UGC</strong><span>Người thật chia sẻ, có phụ đề và điểm nhấn tính năng sản phẩm</span><em>Từ $15</em></figcaption>
     </figure>
     <figure>
-      <div class="frame"><iframe src="https://drive.google.com/file/d/1J3FIUL8aNveXHi1twIa9HFQ4Rhoi6mRR/preview" allow="autoplay; fullscreen" allowfullscreen title="Mẫu Talking Head"></iframe></div>
+      <div class="frame lite" data-id="1J3FIUL8aNveXHi1twIa9HFQ4Rhoi6mRR" role="button" tabindex="0" aria-label="Xem mẫu Talking Head" style="--poster: url(../posters/talking-head.jpg)"></div>
       <figcaption><strong>Talking Head</strong><span>Cắt nhịp gãy gọn, chạy phụ đề từng chữ (tiếng Việt)</span><em>Từ $20</em></figcaption>
     </figure>
     <figure>
-      <div class="frame"><iframe src="https://drive.google.com/file/d/1OXOwCn41_zzfOne5k1NEwhC5j-mdf4Fe/preview" allow="autoplay; fullscreen" allowfullscreen title="Mẫu 2.5D"></iframe></div>
+      <div class="frame lite" data-id="1OXOwCn41_zzfOne5k1NEwhC5j-mdf4Fe" role="button" tabindex="0" aria-label="Xem mẫu 2.5D" style="--poster: url(../posters/2-5d.jpg)"></div>
       <figcaption><strong>2.5D</strong><span>Đồ họa chuyển động tách lớp, minh họa trực quan</span><em>Từ $50</em></figcaption>
     </figure>
     <figure>
-      <div class="frame"><iframe src="https://drive.google.com/file/d/1MVoV-DpjTMRpPx8aL22xXBsv3T3f43nJ/preview" allow="autoplay; fullscreen" allowfullscreen title="Mẫu Motion ad"></iframe></div>
+      <div class="frame lite" data-id="1MVoV-DpjTMRpPx8aL22xXBsv3T3f43nJ" role="button" tabindex="0" aria-label="Xem mẫu Motion ad" style="--poster: url(../posters/motion-ad.jpg)"></div>
       <figcaption><strong>Motion ad</strong><span>Chữ chạy năng động kết hợp render sản phẩm sắc nét</span><em>Báo giá riêng</em></figcaption>
     </figure>
   </div>
@@ -153,5 +160,46 @@
 
   <footer>Cryus Edit</footer>
 </main>
+<script>
+  // Lite embed: ảnh poster trước, trình phát Drive chỉ tải khi bấm.
+  document.querySelectorAll('.frame.lite').forEach(function (el) {
+    function open() {
+      var f = document.createElement('iframe');
+      f.src = 'https://drive.google.com/file/d/' + el.dataset.id + '/preview';
+      f.allow = 'autoplay; fullscreen';
+      f.allowFullscreen = true;
+      f.title = el.getAttribute('aria-label');
+      el.classList.remove('lite');
+      el.removeAttribute('role');
+      el.removeAttribute('tabindex');
+      el.replaceChildren(f);
+    }
+    el.addEventListener('click', open);
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+    });
+  });
+
+  // Kiểm tra căn lề: ?grid=48 vẽ lưới canvas 48px lên trang.
+  if (new URLSearchParams(location.search).get('grid') === '48') {
+    var c = document.createElement('canvas');
+    c.style.cssText = 'position:absolute;top:0;left:0;pointer-events:none;z-index:9999';
+    document.body.appendChild(c);
+    var draw = function () {
+      c.width = document.documentElement.scrollWidth;
+      c.height = document.documentElement.scrollHeight;
+      var x = c.getContext('2d');
+      x.strokeStyle = 'rgba(255,0,0,.35)';
+      x.beginPath();
+      var m = document.querySelector('main').getBoundingClientRect();
+      var ox = (m.left + scrollX) % 48;
+      for (var i = ox; i <= c.width; i += 48) { x.moveTo(i + .5, 0); x.lineTo(i + .5, c.height); }
+      for (var j = 0; j <= c.height; j += 48) { x.moveTo(0, j + .5); x.lineTo(c.width, j + .5); }
+      x.stroke();
+    };
+    draw();
+    addEventListener('resize', draw);
+  }
+</script>
 </body>
 </html>
