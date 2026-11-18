@@ -349,6 +349,9 @@
       f.allow = 'autoplay; fullscreen';
       f.allowFullscreen = true;
       f.title = el.getAttribute('aria-label');
+      // Drive lays out its player for a phone-size viewport: render at 360x640, then scale to the card.
+      f.style.cssText = 'position:absolute;top:0;left:0;width:360px;height:640px;border:0;transform-origin:0 0';
+      f.style.transform = 'scale(' + el.clientWidth / 360 + ')';
       el.classList.remove('lite');
       el.removeAttribute('role');
       el.removeAttribute('tabindex');
