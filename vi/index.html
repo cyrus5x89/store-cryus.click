@@ -144,6 +144,8 @@
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
   .cols .panel h2 { margin-top: 0; }
   .soon { margin: 0; color: var(--muted); }
+  .about-text { margin: 0 0 14px; color: var(--fg); }
+  .about-text:last-child { margin-bottom: 0; }
   footer { margin-top: var(--grid); padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
 
   @media (prefers-reduced-motion: reduce) { figure, .nav a { transition: none; } }
@@ -171,6 +173,7 @@
       <a href="#edit" class="current">Edit</a>
       <a href="#website">Website</a>
       <a href="#shoot">Quay / chụp</a>
+      <a href="#about">Giới thiệu</a>
     </nav>
     <div class="tools">
       <a class="mail" href="mailto:datmedia74@gmail.com">datmedia74@gmail.com</a>
@@ -290,11 +293,19 @@
     </div>
   </section>
 
+  <section id="about" class="page">
+    <h2>Giới thiệu</h2>
+    <div class="glass panel">
+      <p class="about-text">Tôi dựng video từ năm 2019, đi lên từ những dự án nhỏ lẻ. Sau 7 năm làm nghề, tôi rèn được cảm giác nhịp dựng: biết chỗ nào cần nhấn, chỗ nào nên chừa khoảng nghỉ.</p>
+      <p class="about-text">Mỗi video ngắn tôi làm đều có mạch giữ người xem từ đầu đến cuối: mở bằng hook đủ mạnh, chọn góc máy và transition mượt, rồi dẫn tự nhiên tới CTA ở cuối clip.</p>
+    </div>
+  </section>
+
   <footer>Cryus Edit</footer>
 </main>
 <script>
   // Mỗi dịch vụ một trang: hash trên menu quyết định mục nào được hiện.
-  var pages = ['edit', 'website', 'shoot'];
+  var pages = ['edit', 'website', 'shoot', 'about'];
   function showPage(scroll) {
     var id = location.hash.slice(1);
     if (pages.indexOf(id) < 0) id = 'edit';

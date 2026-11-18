@@ -144,6 +144,8 @@
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
   .cols .panel h2 { margin-top: 0; }
   .soon { margin: 0; color: var(--muted); }
+  .about-text { margin: 0 0 14px; color: var(--fg); }
+  .about-text:last-child { margin-bottom: 0; }
   footer { margin-top: var(--grid); padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
 
   @media (prefers-reduced-motion: reduce) { figure, .nav a { transition: none; } }
@@ -171,6 +173,7 @@
       <a href="#edit" class="current">Edit</a>
       <a href="#website">Website</a>
       <a href="#shoot">Filming &amp; Photo</a>
+      <a href="#about">About</a>
     </nav>
     <div class="tools">
       <a class="mail" href="mailto:datmedia74@gmail.com">datmedia74@gmail.com</a>
@@ -290,11 +293,19 @@
     </div>
   </section>
 
+  <section id="about" class="page">
+    <h2>About</h2>
+    <div class="glass panel">
+      <p class="about-text">I have been editing videos since 2019, starting from small independent projects. Over seven years, I have built a strong sense of pacing: knowing when to punch in and when to leave room to breathe.</p>
+      <p class="about-text">I structure every short video to hold attention from start to finish, with a strong opening hook, deliberate camera angles, clean transitions, and a CTA that lands naturally at the end.</p>
+    </div>
+  </section>
+
   <footer>Cryus Edit</footer>
 </main>
 <script>
   // One service per page: the menu hash picks which section shows.
-  var pages = ['edit', 'website', 'shoot'];
+  var pages = ['edit', 'website', 'shoot', 'about'];
   function showPage(scroll) {
     var id = location.hash.slice(1);
     if (pages.indexOf(id) < 0) id = 'edit';
