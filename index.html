@@ -6,63 +6,142 @@
 <title>Cryus Edit Store</title>
 <meta name="description" content="Video editing and AI video services: samples, prices (USD), and process.">
 <style>
+  /* Theme: Onyx #020202 + Candy Blue #B2D5E5, liquid glass surfaces */
   :root {
     --grid: 48px;
-    --bg: #f7f7f5; --surface: #ffffff; --fg: #111; --muted: #66666c; --line: #e2e2de; --accent: #d7262e;
+    --bg: #020202;
+    --fg: #f4f8fa;
+    --muted: #9fb3bd;
+    --accent: #B2D5E5;
+    --accent-text: #B2D5E5;
+    --accent-ink: #020202;
+    --surface: linear-gradient(135deg, rgba(178, 213, 229, .14), rgba(178, 213, 229, .03));
+    --glass-border: rgba(178, 213, 229, .24);
+    --line: rgba(178, 213, 229, .14);
+    --glow: rgba(178, 213, 229, .34);
+    --glow-soft: rgba(178, 213, 229, .12);
+    --shadow: 0 24px 48px -24px rgba(0, 0, 0, .7);
+    --sheen: rgba(255, 255, 255, .16);
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --bg: #0e0e10; --surface: #17171a; --fg: #f2f2f4; --muted: #9a9aa2; --line: #2a2a30; --accent: #ff4d55; }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #e8f2f7;
+      --fg: #020202;
+      --muted: #4b5d66;
+      --accent-text: #1d5f7e;
+      --accent-ink: #020202;
+      --surface: linear-gradient(135deg, rgba(255, 255, 255, .72), rgba(255, 255, 255, .42));
+      --glass-border: rgba(2, 2, 2, .08);
+      --line: rgba(2, 2, 2, .08);
+      --glow: rgba(178, 213, 229, .9);
+      --glow-soft: rgba(178, 213, 229, .5);
+      --shadow: 0 24px 48px -24px rgba(2, 2, 2, .22);
+      --sheen: rgba(255, 255, 255, .7);
+    }
   }
-  :root[data-theme="dark"] { --bg: #0e0e10; --surface: #17171a; --fg: #f2f2f4; --muted: #9a9aa2; --line: #2a2a30; --accent: #ff4d55; }
+  :root[data-theme="light"] {
+    --bg: #e8f2f7;
+    --fg: #020202;
+    --muted: #4b5d66;
+    --accent-text: #1d5f7e;
+    --accent-ink: #020202;
+    --surface: linear-gradient(135deg, rgba(255, 255, 255, .72), rgba(255, 255, 255, .42));
+    --glass-border: rgba(2, 2, 2, .08);
+    --line: rgba(2, 2, 2, .08);
+    --glow: rgba(178, 213, 229, .9);
+    --glow-soft: rgba(178, 213, 229, .5);
+    --shadow: 0 24px 48px -24px rgba(2, 2, 2, .22);
+    --sheen: rgba(255, 255, 255, .7);
+  }
+
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; overflow-x: hidden; }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(60vw 60vw at 12% 8%, var(--glow), transparent 60%),
+      radial-gradient(50vw 50vw at 92% 42%, var(--glow-soft), transparent 62%),
+      radial-gradient(44vw 44vw at 38% 96%, var(--glow-soft), transparent 62%);
+    opacity: .55;
+  }
   main { max-width: 880px; margin: 0 auto; padding: var(--grid) 16px; }
-  .lang { font-size: 14px; color: var(--muted); margin: 0 0 24px; }
-  .lang a { color: var(--muted); }
+
+  /* Liquid glass surface */
+  .glass {
+    position: relative; isolation: isolate;
+    background: var(--surface);
+    backdrop-filter: blur(22px) saturate(170%);
+    -webkit-backdrop-filter: blur(22px) saturate(170%);
+    border: 1px solid var(--glass-border);
+    border-radius: 22px;
+    box-shadow: inset 0 1px 0 var(--sheen), inset 0 -1px 0 rgba(255, 255, 255, .03), var(--shadow);
+    overflow: hidden;
+  }
+  .glass::before {
+    content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+    background: linear-gradient(120deg, var(--sheen), transparent 38%);
+    opacity: .6;
+  }
+
+  .lang { display: inline-block; font-size: 14px; color: var(--muted); margin: 0 0 24px; padding: 6px 14px; border: 1px solid var(--glass-border); border-radius: 999px; background: var(--surface); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .lang a { color: var(--muted); text-decoration: none; }
   .lang strong { color: var(--fg); }
-  .eyebrow { margin: 0 0 8px; color: var(--accent); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+  .eyebrow { margin: 0 0 8px; color: var(--accent-text); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
   h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; margin: 0 0 12px; letter-spacing: -.01em; }
   h2 { font-size: 20px; margin: var(--grid) 0 12px; }
   .lead { color: var(--muted); margin: 0; max-width: 60ch; }
   .note { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
-  a { color: var(--accent); }
+  a { color: var(--accent-text); }
 
-  .demos { display: grid; grid-template-columns: repeat(auto-fill, minmax(192px, 1fr)); gap: 16px; }
-  figure { margin: 0; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .demos { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
+  figure { margin: 0; display: flex; flex-direction: column; transition: transform .25s ease; }
+  @media (hover: hover) { figure:hover { transform: translateY(-3px); } }
   .frame { position: relative; aspect-ratio: 9 / 16; background: #000; }
   .frame.lite { cursor: pointer; background: #000 var(--poster) center / cover no-repeat; }
   .frame.lite::after {
     content: ""; position: absolute; left: 50%; top: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px;
-    border-radius: 50%; background: rgba(0, 0, 0, .55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M8 5v14l11-7z'/%3E%3C/svg%3E") no-repeat center / 26px;
+    border-radius: 50%; background: rgba(2, 2, 2, .42) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23B2D5E5' d='M8 5v14l11-7z'/%3E%3C/svg%3E") no-repeat center / 26px;
+    border: 1px solid rgba(178, 213, 229, .5); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   }
-  .frame.lite:hover::after, .frame.lite:focus-visible::after { background-color: rgba(0, 0, 0, .75); }
+  .frame.lite:hover::after, .frame.lite:focus-visible::after { background-color: rgba(2, 2, 2, .65); }
   .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
   figcaption { flex: 1; display: flex; flex-direction: column; padding: 12px 14px 14px; }
   figcaption strong { display: block; font-size: 16px; }
   figcaption span { display: block; color: var(--muted); font-size: 14px; }
-  figcaption em { margin-top: auto; padding-top: 8px; font-style: normal; font-weight: 600; font-size: 14px; color: var(--accent); }
+  figcaption em { margin-top: auto; padding-top: 8px; font-style: normal; font-weight: 600; font-size: 14px; color: var(--accent-text); }
 
-  table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  .table-wrap { padding: 4px 12px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; }
   th, td { text-align: left; padding: 14px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
   th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
-  td.price { white-space: nowrap; font-weight: 700; font-size: 17px; }
+  td.price { white-space: nowrap; font-weight: 700; font-size: 17px; color: var(--accent-text); }
   td small { display: block; color: var(--muted); font-weight: 400; font-size: 14px; }
   td.na { color: var(--muted); white-space: nowrap; }
-  tr:hover td { background: var(--surface); }
+  tr:hover td { background: rgba(178, 213, 229, .06); }
   .fee { width: auto; min-width: 260px; }
   .fee td.price { font-size: 16px; }
 
+  .panel { padding: 20px 24px; }
   ol, ul { padding-left: 20px; color: var(--muted); margin: 8px 0 0; }
   li + li { margin-top: 6px; }
   li strong { color: var(--fg); }
-  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .contact { margin-top: 8px; font-size: 18px; font-weight: 600; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .cols .panel h2 { margin-top: 0; }
+  .contact { margin: 0; font-size: 18px; font-weight: 600; }
+  .contact-panel { padding: 20px 24px; }
   footer { margin-top: var(--grid); padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
 
+  @media (prefers-reduced-motion: reduce) { figure { transition: none; } }
   @media (max-width: 560px) {
     main { padding: 40px 16px 32px; }
-    th:nth-child(3), td:nth-child(3) { display: none; }
+    th:nth-child(4), td:nth-child(4) { display: none; }
     .cols { grid-template-columns: 1fr; }
+    .demos { gap: 12px; }
+    .panel, .contact-panel { padding: 16px 16px; }
+    .table-wrap { padding: 2px 8px; }
   }
 </style>
 </head>
@@ -78,19 +157,19 @@
   <h2>Samples</h2>
   <p class="note">Hosted on Google Drive. Tap a card to play.</p>
   <div class="demos">
-    <figure>
+    <figure class="glass">
       <div class="frame lite" data-id="1p9pjjGPeXxyqA8S3aKXoraft8uNAAS96" role="button" tabindex="0" aria-label="Play UGC sample" style="--poster: url(posters/ugc.jpg)"></div>
       <figcaption><strong>UGC</strong><span>Real presenter, captions, product call-outs</span><em>From $15</em></figcaption>
     </figure>
-    <figure>
+    <figure class="glass">
       <div class="frame lite" data-id="1J3FIUL8aNveXHi1twIa9HFQ4Rhoi6mRR" role="button" tabindex="0" aria-label="Play talking head sample" style="--poster: url(posters/talking-head.jpg)"></div>
       <figcaption><strong>Talking Head</strong><span>Tight cuts, word captions (Vietnamese)</span><em>From $20</em></figcaption>
     </figure>
-    <figure>
+    <figure class="glass">
       <div class="frame lite" data-id="1OXOwCn41_zzfOne5k1NEwhC5j-mdf4Fe" role="button" tabindex="0" aria-label="Play 2.5D sample" style="--poster: url(posters/2-5d.jpg)"></div>
       <figcaption><strong>2.5D</strong><span>Layered illustrated motion graphics</span><em>From $50</em></figcaption>
     </figure>
-    <figure>
+    <figure class="glass">
       <div class="frame lite" data-id="1MVoV-DpjTMRpPx8aL22xXBsv3T3f43nJ" role="button" tabindex="0" aria-label="Play motion ad sample" style="--poster: url(posters/motion-ad.jpg)"></div>
       <figcaption><strong>Motion ad</strong><span>Kinetic type and product renders</span><em>On request</em></figcaption>
     </figure>
@@ -98,47 +177,53 @@
 
   <h2>Prices</h2>
   <p class="note">USD. <strong>Edit only</strong>: you supply the footage. <strong>With AI</strong>: we generate the video, and the model fee below is added.</p>
-  <table>
-    <thead>
-      <tr><th>Service</th><th>Edit only</th><th>With AI</th><th>Best for</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>UGC<small>15-30 s</small></td><td class="price">$15</td><td class="price">from $35</td><td>Product ads, TikTok, Reels</td></tr>
-      <tr><td>Talking Head<small>60 s</small></td><td class="price">$20</td><td class="price">from $40</td><td>Creators, educators</td></tr>
-      <tr><td>Speed Ramp<small>30 s</small></td><td class="price">$25</td><td class="na">On request</td><td>Sport, travel, cinematic</td></tr>
-      <tr><td>Aura Edit<small>30 s</small></td><td class="price">$30</td><td class="na">On request</td><td>Lifestyle, beauty, fashion</td></tr>
-      <tr><td>Story<small>15-30 s</small></td><td class="price">$10</td><td class="na">On request</td><td>Brand story, Stories, Shorts</td></tr>
-      <tr><td>2.5D<small>30 s</small></td><td class="price">$50</td><td class="na">On request</td><td>Explainers, product launch</td></tr>
-      <tr><td>3D<small>30 s</small></td><td class="price">from $90</td><td class="na">On request</td><td>Product showcase, promo</td></tr>
-      <tr><td>Basic edit<small>Per 30 s: cuts, joins, subtitles, transitions</small></td><td class="price">$3</td><td class="na">-</td><td>Quick cuts, merges, captions</td></tr>
-    </tbody>
-  </table>
+  <div class="glass table-wrap">
+    <table>
+      <thead>
+        <tr><th>Service</th><th>Edit only</th><th>With AI</th><th>Best for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>UGC<small>15-30 s</small></td><td class="price">$15</td><td class="price">from $35</td><td>Product ads, TikTok, Reels</td></tr>
+        <tr><td>Talking Head<small>60 s</small></td><td class="price">$20</td><td class="price">from $40</td><td>Creators, educators</td></tr>
+        <tr><td>Speed Ramp<small>30 s</small></td><td class="price">$25</td><td class="na">On request</td><td>Sport, travel, cinematic</td></tr>
+        <tr><td>Aura Edit<small>30 s</small></td><td class="price">$30</td><td class="na">On request</td><td>Lifestyle, beauty, fashion</td></tr>
+        <tr><td>Story<small>15-30 s</small></td><td class="price">$10</td><td class="na">On request</td><td>Brand story, Stories, Shorts</td></tr>
+        <tr><td>2.5D<small>30 s</small></td><td class="price">$50</td><td class="na">On request</td><td>Explainers, product launch</td></tr>
+        <tr><td>3D<small>30 s</small></td><td class="price">from $90</td><td class="na">On request</td><td>Product showcase, promo</td></tr>
+        <tr><td>Basic edit<small>Per 30 s: cuts, joins, subtitles, transitions</small></td><td class="price">$3</td><td class="na">-</td><td>Quick cuts, merges, captions</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <h2>AI model fee</h2>
   <p class="note">Added to the "With AI" price, per clip. Covers up to 3 generation takes. 1080p, 4K, and clips over 15 s are quoted separately.</p>
-  <table class="fee">
-    <thead>
-      <tr><th>Model</th><th>Fee</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Gemini Omni 1.2 Flash<small>720p, up to 15 s</small></td><td class="price">+$5</td></tr>
-      <tr><td>Seedance 2.5<small>720p, up to 15 s</small></td><td class="price">+$12</td></tr>
-    </tbody>
-  </table>
+  <div class="glass table-wrap">
+    <table class="fee">
+      <thead>
+        <tr><th>Model</th><th>Fee</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Gemini Omni 1.2 Flash<small>720p, up to 15 s</small></td><td class="price">+$5</td></tr>
+        <tr><td>Seedance 2.5<small>720p, up to 15 s</small></td><td class="price">+$12</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <h2>How it works</h2>
-  <ol>
-    <li><strong>Brief.</strong> Send the product, goal, length, platform, deadline, and either your footage or your preferred AI model.</li>
-    <li><strong>Idea.</strong> We send 1-2 directions (hook, script, shot list) within 24 hours.</li>
-    <li><strong>Approve.</strong> You pick a direction and pay a 50% deposit to start. Check the script and shots carefully before approving, because later changes cost extra.</li>
-    <li><strong>Produce.</strong> We edit, or generate the AI video. For AI work, one test take goes to you first.</li>
-    <li><strong>Review.</strong> Up to 2 revision rounds. Each round has a fee: regular video +$5, AI video +$10. Round 3 is quoted by video type, and we agree on it before starting.</li>
-    <li><strong>Deliver.</strong> Final files by Google Drive link. The balance is due on delivery.</li>
-  </ol>
+  <div class="glass panel">
+    <ol>
+      <li><strong>Brief.</strong> Send the product, goal, length, platform, deadline, and either your footage or your preferred AI model.</li>
+      <li><strong>Idea.</strong> We send 1-2 directions (hook, script, shot list) within 24 hours.</li>
+      <li><strong>Approve.</strong> You pick a direction and pay a 50% deposit to start. Check the script and shots carefully before approving, because later changes cost extra.</li>
+      <li><strong>Produce.</strong> We edit, or generate the AI video. For AI work, one test take goes to you first.</li>
+      <li><strong>Review.</strong> Up to 2 revision rounds. Each round has a fee: regular video +$5, AI video +$10. Round 3 is quoted by video type, and we agree on it before starting.</li>
+      <li><strong>Deliver.</strong> Final files by Google Drive link. The balance is due on delivery.</li>
+    </ol>
+  </div>
   <p class="note" style="margin-top:12px">Standard turnaround: 3-5 days. Rush (48 h): +50%.</p>
 
   <div class="cols">
-    <section>
+    <section class="glass panel">
       <h2>Extras</h2>
       <ul>
         <li>Each extra minute: +$10</li>
@@ -147,7 +232,7 @@
         <li>Revision round 3 and later: quoted by video type, agreed first</li>
       </ul>
     </section>
-    <section>
+    <section class="glass panel">
       <h2>Negotiation</h2>
       <ul>
         <li>These are list prices.</li>
@@ -157,12 +242,14 @@
   </div>
 
   <h2>Contact</h2>
-  <p class="contact"><a href="mailto:datmedia74@gmail.com">datmedia74@gmail.com</a></p>
+  <div class="glass contact-panel">
+    <p class="contact"><a href="mailto:datmedia74@gmail.com">datmedia74@gmail.com</a></p>
+  </div>
 
   <footer>Cryus Edit</footer>
 </main>
 <script>
-  // Lite embed: poster first, Drive player loads on click.
+  // Lite embed: ảnh poster trước, trình phát Drive chỉ tải khi bấm.
   document.querySelectorAll('.frame.lite').forEach(function (el) {
     function open() {
       var f = document.createElement('iframe');
