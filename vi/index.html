@@ -5,10 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cryus Edit</title>
 <meta name="description" content="Dịch vụ edit video, website và quay/chụp: mẫu, bảng giá (USD) và quy trình.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 <style>
   /* Theme: Onyx #020202 + Candy Blue #B2D5E5, liquid glass surfaces */
   :root {
     --grid: 48px;
+    --display: "Anton", Impact, "Arial Narrow", sans-serif;
     --bg: #020202;
     --fg: #f4f8fa;
     --muted: #9fb3bd;
@@ -106,6 +110,7 @@
   .lead { color: var(--muted); margin: 0; max-width: 60ch; }
   .note { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
   a { color: var(--accent-text); }
+  h1, h2, .brand, .nav a, .eyebrow, td.price, figcaption strong, figcaption em { font-family: var(--display); font-weight: 400; letter-spacing: .01em; }
 
   .demos { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
   figure { margin: 0; display: flex; flex-direction: column; transition: transform .25s ease; }
@@ -184,12 +189,10 @@
   <header>
     <p class="eyebrow">Cryus Edit</p>
     <h1>Dựng video &amp; sản xuất video AI cho quảng cáo, creator và thương hiệu</h1>
-    <p class="lead">Video ngắn bắt mắt, tối ưu giữ chân người xem. Xem các video mẫu bên dưới và chọn gói dịch vụ phù hợp.</p>
   </header>
 
   <section id="edit" class="page active">
-    <h2>Video thực tế</h2>
-    <p class="note">Video lưu trên Google Drive. Bấm vào khung để xem.</p>
+    <h2>Sản phẩm thực tế</h2>
     <div class="demos">
       <figure class="glass">
         <div class="frame lite" data-id="1p9pjjGPeXxyqA8S3aKXoraft8uNAAS96" role="button" tabindex="0" aria-label="Xem mẫu UGC" style="--poster: url(../posters/ugc.jpg)"></div>
