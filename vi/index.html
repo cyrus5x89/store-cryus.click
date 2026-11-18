@@ -116,7 +116,7 @@
   figure { margin: 0; display: flex; flex-direction: column; transition: transform .25s ease; }
   @media (hover: hover) { figure:hover { transform: translateY(-3px); } }
   .frame { position: relative; aspect-ratio: 9 / 16; background: #000; }
-  .frame.lite { cursor: pointer; background: #000 var(--poster) center / cover no-repeat; }
+  .frame.lite { cursor: pointer; background: #000 var(--poster) center / var(--fit, cover) no-repeat; }
   .frame.lite::after {
     content: ""; position: absolute; left: 50%; top: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px;
     border-radius: 50%; background: rgba(2, 2, 2, .42) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23B2D5E5' d='M8 5v14l11-7z'/%3E%3C/svg%3E") no-repeat center / 26px;
@@ -209,6 +209,18 @@
       <figure class="glass">
         <div class="frame lite" data-id="1MVoV-DpjTMRpPx8aL22xXBsv3T3f43nJ" role="button" tabindex="0" aria-label="Xem mẫu Motion ad" style="--poster: url(../posters/motion-ad.jpg)"></div>
         <figcaption><strong>Motion graphic</strong><span>10 giây, chữ chạy và render sản phẩm sắc nét</span><em>Từ $10</em></figcaption>
+      </figure>
+      <figure class="glass">
+        <div class="frame lite" data-id="1ZDlUkHjY2deSe7CjZ_yTsZkhxEV7LFqw" role="button" tabindex="0" aria-label="Xem mẫu story animation" style="--poster: url(../posters/story-animation.jpg); --fit: contain"></div>
+        <figcaption><strong>Story animation</strong><span>Hoạt ảnh story</span><em>Báo giá riêng</em></figcaption>
+      </figure>
+      <figure class="glass">
+        <div class="frame lite" data-id="1ChYAYzRmGsgafRvuCCMm8z8-V-Dq0fQ4" role="button" tabindex="0" aria-label="Xem mẫu Meta Ads" style="--poster: url(../posters/meta-ads.jpg)"></div>
+        <figcaption><strong>Meta Ads</strong><span>Định dạng quảng cáo Meta</span><em>Báo giá riêng</em></figcaption>
+      </figure>
+      <figure class="glass">
+        <div class="frame lite" data-id="1Dmc73qUovKvxWZnsee2c2e-Tgw_4gIPB" role="button" tabindex="0" aria-label="Xem mẫu TikTok Ads" style="--poster: url(../posters/tiktok-ads.jpg)"></div>
+        <figcaption><strong>TikTok Ads</strong><span>Định dạng quảng cáo TikTok</span><em>Báo giá riêng</em></figcaption>
       </figure>
     </div>
 
