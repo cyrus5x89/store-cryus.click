@@ -221,7 +221,7 @@
         <figcaption><strong>2.5D</strong><span>Layered illustrated motion graphics</span><em>From $50</em></figcaption>
       </figure>
       <figure class="glass">
-        <div class="frame lite" data-id="1ZDlUkHjY2deSe7CjZ_yTsZkhxEV7LFqw" role="button" tabindex="0" aria-label="Play story animation sample" style="--poster: url(posters/story-animation.jpg); --fit: contain"></div>
+        <a class="frame lite" href="https://drive.google.com/file/d/1ZDlUkHjY2deSe7CjZ_yTsZkhxEV7LFqw/view" target="_blank" rel="noopener" aria-label="Open story animation on Google Drive" style="--poster: url(posters/story-animation.jpg); --fit: contain"></a>
         <figcaption><strong>Story animation</strong><span>Animated story</span><em>On request</em></figcaption>
       </figure>
       <figure class="glass">
@@ -364,7 +364,7 @@
   });
 
   // Lite embed: ảnh poster trước, trình phát Drive chỉ tải khi bấm.
-  document.querySelectorAll('.frame.lite').forEach(function (el) {
+  document.querySelectorAll('div.frame.lite').forEach(function (el) {
     function open() {
       var f = document.createElement('iframe');
       f.src = 'https://drive.google.com/file/d/' + el.dataset.id + '/preview';
