@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cryus Edit</title>
-<meta name="description" content="Dịch vụ dựng video và sản xuất video AI: mẫu, bảng giá (USD) và quy trình.">
+<meta name="description" content="Dịch vụ edit video, website và quay/chụp: mẫu, bảng giá (USD) và quy trình.">
 <style>
   /* Theme: Onyx #020202 + Candy Blue #B2D5E5, liquid glass surfaces */
   :root {
@@ -65,7 +65,8 @@
       radial-gradient(44vw 44vw at 38% 96%, var(--glow-soft), transparent 62%);
     opacity: .55;
   }
-  main { max-width: 880px; margin: 0 auto; padding: var(--grid) 16px; }
+  main { max-width: 880px; margin: 0 auto; padding: 24px 16px var(--grid); }
+  section { scroll-margin-top: 96px; }
 
   /* Liquid glass surface */
   .glass {
@@ -84,7 +85,13 @@
     opacity: .6;
   }
 
-  .lang { display: inline-block; font-size: 14px; color: var(--muted); margin: 0 0 24px; padding: 6px 14px; border: 1px solid var(--glass-border); border-radius: 999px; background: var(--surface); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  /* Top menu */
+  .topbar { position: sticky; top: 12px; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding: 10px 12px 10px 18px; margin: 0 0 40px; border-radius: 999px; }
+  .brand { font-weight: 700; letter-spacing: -.01em; color: var(--fg); text-decoration: none; }
+  .nav { display: flex; flex-wrap: wrap; gap: 4px; }
+  .nav a { color: var(--muted); text-decoration: none; font-size: 14px; padding: 6px 12px; border-radius: 999px; transition: background .2s ease, color .2s ease; }
+  .nav a:hover, .nav a:focus-visible { color: var(--fg); background: rgba(178, 213, 229, .16); }
+  .lang { display: inline-block; font-size: 14px; color: var(--muted); padding: 6px 14px; border: 1px solid var(--glass-border); border-radius: 999px; background: var(--surface); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
   .lang a { color: var(--muted); text-decoration: none; }
   .lang strong { color: var(--fg); }
   .eyebrow { margin: 0 0 8px; color: var(--accent-text); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
@@ -132,11 +139,15 @@
   .cols .panel h2 { margin-top: 0; }
   .contact { margin: 0; font-size: 18px; font-weight: 600; }
   .contact-panel { padding: 20px 24px; }
+  .soon { margin: 0; color: var(--muted); }
   footer { margin-top: var(--grid); padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
 
-  @media (prefers-reduced-motion: reduce) { figure { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { figure, .nav a { transition: none; } }
   @media (max-width: 560px) {
-    main { padding: 40px 16px 32px; }
+    main { padding: 16px 16px 32px; }
+    .topbar { border-radius: 22px; padding: 10px 12px; }
+    .nav { order: 3; width: 100%; justify-content: space-between; }
+    .nav a { padding: 6px 10px; }
     th:nth-child(4), td:nth-child(4) { display: none; }
     .cols { grid-template-columns: 1fr; }
     .demos { gap: 12px; }
@@ -147,104 +158,130 @@
 </head>
 <body>
 <main>
+  <div class="glass topbar">
+      <a class="brand" href="#">Cryus Edit</a>
+      <nav class="nav" aria-label="Dịch vụ">
+        <a href="#edit">Edit</a>
+        <a href="#website">Website</a>
+        <a href="#shoot">Quay / chụp</a>
+      </nav>
+      <nav class="lang" aria-label="Ngôn ngữ"><a href="../">EN</a> · <strong>VI</strong></nav>
+  </div>
   <header>
-    <nav class="lang"><a href="../">English</a> · <strong>Tiếng Việt</strong></nav>
     <p class="eyebrow">Cryus Edit</p>
     <h1>Dựng video &amp; sản xuất video AI cho quảng cáo, creator và thương hiệu</h1>
     <p class="lead">Video ngắn bắt mắt, tối ưu giữ chân người xem. Xem các video mẫu bên dưới và chọn gói dịch vụ phù hợp.</p>
   </header>
 
-  <h2>Video thực tế</h2>
-  <p class="note">Video lưu trên Google Drive. Bấm vào khung để xem.</p>
-  <div class="demos">
-    <figure class="glass">
-      <div class="frame lite" data-id="1p9pjjGPeXxyqA8S3aKXoraft8uNAAS96" role="button" tabindex="0" aria-label="Xem mẫu UGC" style="--poster: url(../posters/ugc.jpg)"></div>
-      <figcaption><strong>UGC</strong><span>Người thật chia sẻ, có phụ đề và điểm nhấn tính năng sản phẩm</span><em>Từ $15</em></figcaption>
-    </figure>
-    <figure class="glass">
-      <div class="frame lite" data-id="1J3FIUL8aNveXHi1twIa9HFQ4Rhoi6mRR" role="button" tabindex="0" aria-label="Xem mẫu Talking Head" style="--poster: url(../posters/talking-head.jpg)"></div>
-      <figcaption><strong>Talking Head</strong><span>Cắt nhịp gãy gọn, chạy phụ đề từng chữ (tiếng Việt)</span><em>Từ $20</em></figcaption>
-    </figure>
-    <figure class="glass">
-      <div class="frame lite" data-id="1OXOwCn41_zzfOne5k1NEwhC5j-mdf4Fe" role="button" tabindex="0" aria-label="Xem mẫu 2.5D" style="--poster: url(../posters/2-5d.jpg)"></div>
-      <figcaption><strong>2.5D</strong><span>Đồ họa chuyển động tách lớp, minh họa trực quan</span><em>Từ $50</em></figcaption>
-    </figure>
-    <figure class="glass">
-      <div class="frame lite" data-id="1MVoV-DpjTMRpPx8aL22xXBsv3T3f43nJ" role="button" tabindex="0" aria-label="Xem mẫu Motion ad" style="--poster: url(../posters/motion-ad.jpg)"></div>
-      <figcaption><strong>Motion ad</strong><span>Chữ chạy năng động kết hợp render sản phẩm sắc nét</span><em>Báo giá riêng</em></figcaption>
-    </figure>
-  </div>
+  <section id="edit">
+    <h2>Video thực tế</h2>
+    <p class="note">Video lưu trên Google Drive. Bấm vào khung để xem.</p>
+    <div class="demos">
+      <figure class="glass">
+        <div class="frame lite" data-id="1p9pjjGPeXxyqA8S3aKXoraft8uNAAS96" role="button" tabindex="0" aria-label="Xem mẫu UGC" style="--poster: url(../posters/ugc.jpg)"></div>
+        <figcaption><strong>UGC</strong><span>Người thật chia sẻ, có phụ đề và điểm nhấn tính năng sản phẩm</span><em>Từ $15</em></figcaption>
+      </figure>
+      <figure class="glass">
+        <div class="frame lite" data-id="1J3FIUL8aNveXHi1twIa9HFQ4Rhoi6mRR" role="button" tabindex="0" aria-label="Xem mẫu Talking Head" style="--poster: url(../posters/talking-head.jpg)"></div>
+        <figcaption><strong>Talking Head</strong><span>Cắt nhịp gãy gọn, chạy phụ đề từng chữ (tiếng Việt)</span><em>Từ $20</em></figcaption>
+      </figure>
+      <figure class="glass">
+        <div class="frame lite" data-id="1OXOwCn41_zzfOne5k1NEwhC5j-mdf4Fe" role="button" tabindex="0" aria-label="Xem mẫu 2.5D" style="--poster: url(../posters/2-5d.jpg)"></div>
+        <figcaption><strong>2.5D</strong><span>Đồ họa chuyển động tách lớp, minh họa trực quan</span><em>Từ $50</em></figcaption>
+      </figure>
+      <figure class="glass">
+        <div class="frame lite" data-id="1MVoV-DpjTMRpPx8aL22xXBsv3T3f43nJ" role="button" tabindex="0" aria-label="Xem mẫu Motion ad" style="--poster: url(../posters/motion-ad.jpg)"></div>
+        <figcaption><strong>Motion ad</strong><span>Chữ chạy năng động kết hợp render sản phẩm sắc nét</span><em>Báo giá riêng</em></figcaption>
+      </figure>
+    </div>
 
-  <h2>Bảng giá dịch vụ</h2>
-  <p class="note">Đơn giá tính bằng USD. Gói "Chỉ edit": khách hàng gửi sẵn source quay. Gói "Có AI": chúng tôi tạo cảnh quay bằng AI (chưa gồm phí model bên dưới).</p>
-  <div class="glass table-wrap">
-    <table>
-      <thead>
-        <tr><th>Dịch vụ</th><th>Chỉ edit</th><th>Có AI</th><th>Phù hợp cho</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>UGC<small>15-30 s</small></td><td class="price">$15</td><td class="price">từ $35</td><td>Chạy ads sản phẩm, TikTok, Reels</td></tr>
-        <tr><td>Talking Head<small>60 s</small></td><td class="price">$20</td><td class="price">từ $40</td><td>Kênh cá nhân, chia sẻ kiến thức</td></tr>
-        <tr><td>Speed Ramp<small>30 s</small></td><td class="price">$25</td><td class="na">Báo giá riêng</td><td>Thể thao, du lịch, thước phim điện ảnh</td></tr>
-        <tr><td>Aura Edit<small>30 s</small></td><td class="price">$30</td><td class="na">Báo giá riêng</td><td>Lifestyle, mỹ phẩm, thời trang</td></tr>
-        <tr><td>Story<small>15-30 s</small></td><td class="price">$10</td><td class="na">Báo giá riêng</td><td>Kể chuyện thương hiệu, Stories, Shorts</td></tr>
-        <tr><td>2.5D<small>30 s</small></td><td class="price">$50</td><td class="na">Báo giá riêng</td><td>Video giải thích, ra mắt sản phẩm mới</td></tr>
-        <tr><td>3D<small>30 s</small></td><td class="price">từ $90</td><td class="na">Báo giá riêng</td><td>Diễn họa sản phẩm, TVC quảng cáo</td></tr>
-        <tr><td>Basic edit<small>Mỗi 30 s: cắt ghép, phụ đề, chuyển cảnh</small></td><td class="price">$3</td><td class="na">-</td><td>Dựng cơ bản, ghép clip nhanh, làm sub</td></tr>
-      </tbody>
-    </table>
-  </div>
+    <h2>Bảng giá dịch vụ</h2>
+    <p class="note">Đơn giá tính bằng USD. Gói "Chỉ edit": khách hàng gửi sẵn source quay. Gói "Có AI": chúng tôi tạo cảnh quay bằng AI (chưa gồm phí model bên dưới).</p>
+    <div class="glass table-wrap">
+      <table>
+        <thead>
+          <tr><th>Dịch vụ</th><th>Chỉ edit</th><th>Có AI</th><th>Phù hợp cho</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>UGC<small>15-30 s</small></td><td class="price">$15</td><td class="price">từ $35</td><td>Chạy ads sản phẩm, TikTok, Reels</td></tr>
+          <tr><td>Talking Head<small>60 s</small></td><td class="price">$20</td><td class="price">từ $40</td><td>Kênh cá nhân, chia sẻ kiến thức</td></tr>
+          <tr><td>Speed Ramp<small>30 s</small></td><td class="price">$25</td><td class="na">Báo giá riêng</td><td>Thể thao, du lịch, thước phim điện ảnh</td></tr>
+          <tr><td>Aura Edit<small>30 s</small></td><td class="price">$30</td><td class="na">Báo giá riêng</td><td>Lifestyle, mỹ phẩm, thời trang</td></tr>
+          <tr><td>Story<small>15-30 s</small></td><td class="price">$10</td><td class="na">Báo giá riêng</td><td>Kể chuyện thương hiệu, Stories, Shorts</td></tr>
+          <tr><td>2.5D<small>30 s</small></td><td class="price">$50</td><td class="na">Báo giá riêng</td><td>Video giải thích, ra mắt sản phẩm mới</td></tr>
+          <tr><td>3D<small>30 s</small></td><td class="price">từ $90</td><td class="na">Báo giá riêng</td><td>Diễn họa sản phẩm, TVC quảng cáo</td></tr>
+          <tr><td>Basic edit<small>Mỗi 30 s: cắt ghép, phụ đề, chuyển cảnh</small></td><td class="price">$3</td><td class="na">-</td><td>Dựng cơ bản, ghép clip nhanh, làm sub</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-  <h2>Phí model AI</h2>
-  <p class="note">Áp dụng cho gói "Có AI", tính trên từng video hoàn chỉnh. Đã bao gồm tối đa 3 lần tạo (generate). Độ phân giải 1080p, 4K và clip trên 15 giây báo giá riêng.</p>
-  <div class="glass table-wrap">
-    <table class="fee">
-      <thead>
-        <tr><th>Model</th><th>Phí</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Gemini Omni 1.2 Flash<small>720p, tối đa 15 s</small></td><td class="price">+$5</td></tr>
-        <tr><td>Seedance 2.5<small>720p, tối đa 15 s</small></td><td class="price">+$12</td></tr>
-      </tbody>
-    </table>
-  </div>
+    <h2>Phí model AI</h2>
+    <p class="note">Áp dụng cho gói "Có AI", tính trên từng video hoàn chỉnh. Đã bao gồm tối đa 3 lần tạo (generate). Độ phân giải 1080p, 4K và clip trên 15 giây báo giá riêng.</p>
+    <div class="glass table-wrap">
+      <table class="fee">
+        <thead>
+          <tr><th>Model</th><th>Phí</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Gemini Omni 1.2 Flash<small>720p, tối đa 15 s</small></td><td class="price">+$5</td></tr>
+          <tr><td>Seedance 2.5<small>720p, tối đa 15 s</small></td><td class="price">+$12</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-  <h2>Quy trình làm việc</h2>
-  <div class="glass panel">
-    <ol>
-      <li><strong>Nhận yêu cầu.</strong> Khách hàng gửi thông tin sản phẩm, mục tiêu, thời lượng, nền tảng đăng, deadline, kèm source quay sẵn hoặc chọn model AI muốn dùng.</li>
-      <li><strong>Lên ý tưởng.</strong> Trong 24 giờ, chúng tôi gửi 1-2 phương án triển khai (câu dẫn hook, kịch bản, danh sách cảnh quay).</li>
-      <li><strong>Chốt &amp; đặt cọc.</strong> Duyệt phương án và cọc trước 50% để bắt đầu sản xuất. Xem kỹ kịch bản và cảnh quay trước khi duyệt, vì sửa sau đó sẽ tính phí.</li>
-      <li><strong>Sản xuất.</strong> Tiến hành dựng hoặc tạo cảnh bằng AI. Riêng gói AI sẽ có 1 bản nháp để duyệt trước hướng hình ảnh.</li>
-      <li><strong>Tinh chỉnh.</strong> Tối đa 2 vòng sửa. Mỗi vòng có phí: video thường +$5, video AI +$10. Vòng sửa thứ 3 báo giá theo loại video, thống nhất trước khi làm.</li>
-      <li><strong>Bàn giao.</strong> Gửi file hoàn thiện qua Google Drive. Khách hàng tất toán 50% còn lại khi nhận file.</li>
-    </ol>
-  </div>
-  <p class="note" style="margin-top:12px">Thời gian hoàn thiện tiêu chuẩn: 3-5 ngày. Làm gấp (trong 48 giờ): +50% phí.</p>
+    <h2>Quy trình làm việc</h2>
+    <div class="glass panel">
+      <ol>
+        <li><strong>Nhận yêu cầu.</strong> Khách hàng gửi thông tin sản phẩm, mục tiêu, thời lượng, nền tảng đăng, deadline, kèm source quay sẵn hoặc chọn model AI muốn dùng.</li>
+        <li><strong>Lên ý tưởng.</strong> Trong 24 giờ, chúng tôi gửi 1-2 phương án triển khai (câu dẫn hook, kịch bản, danh sách cảnh quay).</li>
+        <li><strong>Chốt &amp; đặt cọc.</strong> Duyệt phương án và cọc trước 50% để bắt đầu sản xuất. Xem kỹ kịch bản và cảnh quay trước khi duyệt, vì sửa sau đó sẽ tính phí.</li>
+        <li><strong>Sản xuất.</strong> Tiến hành dựng hoặc tạo cảnh bằng AI. Riêng gói AI sẽ có 1 bản nháp để duyệt trước hướng hình ảnh.</li>
+        <li><strong>Tinh chỉnh.</strong> Tối đa 2 vòng sửa. Mỗi vòng có phí: video thường +$5, video AI +$10. Vòng sửa thứ 3 báo giá theo loại video, thống nhất trước khi làm.</li>
+        <li><strong>Bàn giao.</strong> Gửi file hoàn thiện qua Google Drive. Khách hàng tất toán 50% còn lại khi nhận file.</li>
+      </ol>
+    </div>
+    <p class="note" style="margin-top:12px">Thời gian hoàn thiện tiêu chuẩn: 3-5 ngày. Làm gấp (trong 48 giờ): +50% phí.</p>
 
-  <div class="cols">
-    <section class="glass panel">
-      <h2>Phụ phí &amp; ưu đãi</h2>
-      <ul>
-        <li>Thêm thời lượng: +$10 / phút</li>
-        <li>Làm gấp (nhận file trong 48 giờ): +50%</li>
-        <li>Đặt gói 5 video: giảm ngay 15%</li>
-        <li>Vòng sửa thứ 3 trở đi: báo giá theo loại video, thống nhất trước</li>
-      </ul>
-    </section>
-    <section class="glass panel">
-      <h2>Hợp tác dài hạn</h2>
-      <ul>
-        <li>Mức giá trên áp dụng cho các đơn lẻ tiêu chuẩn.</li>
-        <li>Có chính sách giá tốt hơn khi đặt số lượng lớn hoặc hợp tác theo gói tháng.</li>
-      </ul>
-    </section>
-  </div>
+    <div class="cols">
+      <section class="glass panel">
+        <h2>Phụ phí &amp; ưu đãi</h2>
+        <ul>
+          <li>Thêm thời lượng: +$10 / phút</li>
+          <li>Làm gấp (nhận file trong 48 giờ): +50%</li>
+          <li>Đặt gói 5 video: giảm ngay 15%</li>
+          <li>Vòng sửa thứ 3 trở đi: báo giá theo loại video, thống nhất trước</li>
+        </ul>
+      </section>
+      <section class="glass panel">
+        <h2>Hợp tác dài hạn</h2>
+        <ul>
+          <li>Mức giá trên áp dụng cho các đơn lẻ tiêu chuẩn.</li>
+          <li>Có chính sách giá tốt hơn khi đặt số lượng lớn hoặc hợp tác theo gói tháng.</li>
+        </ul>
+      </section>
+    </div>
+  </section>
 
-  <h2>Liên hệ</h2>
-  <div class="glass contact-panel">
-    <p class="contact"><a href="mailto:datmedia74@gmail.com">datmedia74@gmail.com</a></p>
-  </div>
+  <section id="website">
+    <h2>Website</h2>
+    <div class="glass panel">
+      <p class="soon"><strong>Sắp có.</strong> Chưa có mẫu để xem. Liên hệ để trao đổi về nhu cầu website của bạn.</p>
+    </div>
+  </section>
+
+  <section id="shoot">
+    <h2>Quay / chụp</h2>
+    <div class="glass panel">
+      <p class="soon"><strong>Sắp có.</strong> Chưa có mẫu để xem. Liên hệ để trao đổi về buổi quay hoặc chụp của bạn.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Liên hệ</h2>
+    <div class="glass contact-panel">
+      <p class="contact"><a href="mailto:datmedia74@gmail.com">datmedia74@gmail.com</a></p>
+    </div>
+  </section>
 
   <footer>Cryus Edit</footer>
 </main>

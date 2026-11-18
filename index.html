@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cryus Edit Store</title>
-<meta name="description" content="Video editing and AI video services: samples, prices (USD), and process.">
+<meta name="description" content="Video editing, website, and filming services: samples, prices (USD), and process.">
 <style>
   /* Theme: Onyx #020202 + Candy Blue #B2D5E5, liquid glass surfaces */
   :root {
@@ -65,7 +65,8 @@
       radial-gradient(44vw 44vw at 38% 96%, var(--glow-soft), transparent 62%);
     opacity: .55;
   }
-  main { max-width: 880px; margin: 0 auto; padding: var(--grid) 16px; }
+  main { max-width: 880px; margin: 0 auto; padding: 24px 16px var(--grid); }
+  section { scroll-margin-top: 96px; }
 
   /* Liquid glass surface */
   .glass {
@@ -84,7 +85,13 @@
     opacity: .6;
   }
 
-  .lang { display: inline-block; font-size: 14px; color: var(--muted); margin: 0 0 24px; padding: 6px 14px; border: 1px solid var(--glass-border); border-radius: 999px; background: var(--surface); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  /* Top menu */
+  .topbar { position: sticky; top: 12px; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding: 10px 12px 10px 18px; margin: 0 0 40px; border-radius: 999px; }
+  .brand { font-weight: 700; letter-spacing: -.01em; color: var(--fg); text-decoration: none; }
+  .nav { display: flex; flex-wrap: wrap; gap: 4px; }
+  .nav a { color: var(--muted); text-decoration: none; font-size: 14px; padding: 6px 12px; border-radius: 999px; transition: background .2s ease, color .2s ease; }
+  .nav a:hover, .nav a:focus-visible { color: var(--fg); background: rgba(178, 213, 229, .16); }
+  .lang { display: inline-block; font-size: 14px; color: var(--muted); padding: 6px 14px; border: 1px solid var(--glass-border); border-radius: 999px; background: var(--surface); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
   .lang a { color: var(--muted); text-decoration: none; }
   .lang strong { color: var(--fg); }
   .eyebrow { margin: 0 0 8px; color: var(--accent-text); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
@@ -132,11 +139,15 @@
   .cols .panel h2 { margin-top: 0; }
   .contact { margin: 0; font-size: 18px; font-weight: 600; }
   .contact-panel { padding: 20px 24px; }
+  .soon { margin: 0; color: var(--muted); }
   footer { margin-top: var(--grid); padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
 
-  @media (prefers-reduced-motion: reduce) { figure { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { figure, .nav a { transition: none; } }
   @media (max-width: 560px) {
-    main { padding: 40px 16px 32px; }
+    main { padding: 16px 16px 32px; }
+    .topbar { border-radius: 22px; padding: 10px 12px; }
+    .nav { order: 3; width: 100%; justify-content: space-between; }
+    .nav a { padding: 6px 10px; }
     th:nth-child(4), td:nth-child(4) { display: none; }
     .cols { grid-template-columns: 1fr; }
     .demos { gap: 12px; }
@@ -147,104 +158,130 @@
 </head>
 <body>
 <main>
+  <div class="glass topbar">
+      <a class="brand" href="#">Cryus Edit</a>
+      <nav class="nav" aria-label="Services">
+        <a href="#edit">Edit</a>
+        <a href="#website">Website</a>
+        <a href="#shoot">Filming &amp; Photo</a>
+      </nav>
+      <nav class="lang" aria-label="Language"><strong>EN</strong> · <a href="vi/">VI</a></nav>
+  </div>
   <header>
-    <nav class="lang"><strong>English</strong> · <a href="vi/">Tiếng Việt</a></nav>
     <p class="eyebrow">Cryus Edit</p>
     <h1>Video editing and AI video for ads, creators and brands</h1>
     <p class="lead">Short-form edits built to stop the scroll. Watch the samples, then pick a service below.</p>
   </header>
 
-  <h2>Samples</h2>
-  <p class="note">Hosted on Google Drive. Tap a card to play.</p>
-  <div class="demos">
-    <figure class="glass">
-      <div class="frame lite" data-id="1p9pjjGPeXxyqA8S3aKXoraft8uNAAS96" role="button" tabindex="0" aria-label="Play UGC sample" style="--poster: url(posters/ugc.jpg)"></div>
-      <figcaption><strong>UGC</strong><span>Real presenter, captions, product call-outs</span><em>From $15</em></figcaption>
-    </figure>
-    <figure class="glass">
-      <div class="frame lite" data-id="1J3FIUL8aNveXHi1twIa9HFQ4Rhoi6mRR" role="button" tabindex="0" aria-label="Play talking head sample" style="--poster: url(posters/talking-head.jpg)"></div>
-      <figcaption><strong>Talking Head</strong><span>Tight cuts, word captions (Vietnamese)</span><em>From $20</em></figcaption>
-    </figure>
-    <figure class="glass">
-      <div class="frame lite" data-id="1OXOwCn41_zzfOne5k1NEwhC5j-mdf4Fe" role="button" tabindex="0" aria-label="Play 2.5D sample" style="--poster: url(posters/2-5d.jpg)"></div>
-      <figcaption><strong>2.5D</strong><span>Layered illustrated motion graphics</span><em>From $50</em></figcaption>
-    </figure>
-    <figure class="glass">
-      <div class="frame lite" data-id="1MVoV-DpjTMRpPx8aL22xXBsv3T3f43nJ" role="button" tabindex="0" aria-label="Play motion ad sample" style="--poster: url(posters/motion-ad.jpg)"></div>
-      <figcaption><strong>Motion ad</strong><span>Kinetic type and product renders</span><em>On request</em></figcaption>
-    </figure>
-  </div>
+  <section id="edit">
+    <h2>Samples</h2>
+    <p class="note">Hosted on Google Drive. Tap a card to play.</p>
+    <div class="demos">
+      <figure class="glass">
+        <div class="frame lite" data-id="1p9pjjGPeXxyqA8S3aKXoraft8uNAAS96" role="button" tabindex="0" aria-label="Play UGC sample" style="--poster: url(posters/ugc.jpg)"></div>
+        <figcaption><strong>UGC</strong><span>Real presenter, captions, product call-outs</span><em>From $15</em></figcaption>
+      </figure>
+      <figure class="glass">
+        <div class="frame lite" data-id="1J3FIUL8aNveXHi1twIa9HFQ4Rhoi6mRR" role="button" tabindex="0" aria-label="Play talking head sample" style="--poster: url(posters/talking-head.jpg)"></div>
+        <figcaption><strong>Talking Head</strong><span>Tight cuts, word captions (Vietnamese)</span><em>From $20</em></figcaption>
+      </figure>
+      <figure class="glass">
+        <div class="frame lite" data-id="1OXOwCn41_zzfOne5k1NEwhC5j-mdf4Fe" role="button" tabindex="0" aria-label="Play 2.5D sample" style="--poster: url(posters/2-5d.jpg)"></div>
+        <figcaption><strong>2.5D</strong><span>Layered illustrated motion graphics</span><em>From $50</em></figcaption>
+      </figure>
+      <figure class="glass">
+        <div class="frame lite" data-id="1MVoV-DpjTMRpPx8aL22xXBsv3T3f43nJ" role="button" tabindex="0" aria-label="Play motion ad sample" style="--poster: url(posters/motion-ad.jpg)"></div>
+        <figcaption><strong>Motion ad</strong><span>Kinetic type and product renders</span><em>On request</em></figcaption>
+      </figure>
+    </div>
 
-  <h2>Prices</h2>
-  <p class="note">USD. <strong>Edit only</strong>: you supply the footage. <strong>With AI</strong>: we generate the video, and the model fee below is added.</p>
-  <div class="glass table-wrap">
-    <table>
-      <thead>
-        <tr><th>Service</th><th>Edit only</th><th>With AI</th><th>Best for</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>UGC<small>15-30 s</small></td><td class="price">$15</td><td class="price">from $35</td><td>Product ads, TikTok, Reels</td></tr>
-        <tr><td>Talking Head<small>60 s</small></td><td class="price">$20</td><td class="price">from $40</td><td>Creators, educators</td></tr>
-        <tr><td>Speed Ramp<small>30 s</small></td><td class="price">$25</td><td class="na">On request</td><td>Sport, travel, cinematic</td></tr>
-        <tr><td>Aura Edit<small>30 s</small></td><td class="price">$30</td><td class="na">On request</td><td>Lifestyle, beauty, fashion</td></tr>
-        <tr><td>Story<small>15-30 s</small></td><td class="price">$10</td><td class="na">On request</td><td>Brand story, Stories, Shorts</td></tr>
-        <tr><td>2.5D<small>30 s</small></td><td class="price">$50</td><td class="na">On request</td><td>Explainers, product launch</td></tr>
-        <tr><td>3D<small>30 s</small></td><td class="price">from $90</td><td class="na">On request</td><td>Product showcase, promo</td></tr>
-        <tr><td>Basic edit<small>Per 30 s: cuts, joins, subtitles, transitions</small></td><td class="price">$3</td><td class="na">-</td><td>Quick cuts, merges, captions</td></tr>
-      </tbody>
-    </table>
-  </div>
+    <h2>Prices</h2>
+    <p class="note">USD. <strong>Edit only</strong>: you supply the footage. <strong>With AI</strong>: we generate the video, and the model fee below is added.</p>
+    <div class="glass table-wrap">
+      <table>
+        <thead>
+          <tr><th>Service</th><th>Edit only</th><th>With AI</th><th>Best for</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>UGC<small>15-30 s</small></td><td class="price">$15</td><td class="price">from $35</td><td>Product ads, TikTok, Reels</td></tr>
+          <tr><td>Talking Head<small>60 s</small></td><td class="price">$20</td><td class="price">from $40</td><td>Creators, educators</td></tr>
+          <tr><td>Speed Ramp<small>30 s</small></td><td class="price">$25</td><td class="na">On request</td><td>Sport, travel, cinematic</td></tr>
+          <tr><td>Aura Edit<small>30 s</small></td><td class="price">$30</td><td class="na">On request</td><td>Lifestyle, beauty, fashion</td></tr>
+          <tr><td>Story<small>15-30 s</small></td><td class="price">$10</td><td class="na">On request</td><td>Brand story, Stories, Shorts</td></tr>
+          <tr><td>2.5D<small>30 s</small></td><td class="price">$50</td><td class="na">On request</td><td>Explainers, product launch</td></tr>
+          <tr><td>3D<small>30 s</small></td><td class="price">from $90</td><td class="na">On request</td><td>Product showcase, promo</td></tr>
+          <tr><td>Basic edit<small>Per 30 s: cuts, joins, subtitles, transitions</small></td><td class="price">$3</td><td class="na">-</td><td>Quick cuts, merges, captions</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-  <h2>AI model fee</h2>
-  <p class="note">Added to the "With AI" price, per clip. Covers up to 3 generation takes. 1080p, 4K, and clips over 15 s are quoted separately.</p>
-  <div class="glass table-wrap">
-    <table class="fee">
-      <thead>
-        <tr><th>Model</th><th>Fee</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Gemini Omni 1.2 Flash<small>720p, up to 15 s</small></td><td class="price">+$5</td></tr>
-        <tr><td>Seedance 2.5<small>720p, up to 15 s</small></td><td class="price">+$12</td></tr>
-      </tbody>
-    </table>
-  </div>
+    <h2>AI model fee</h2>
+    <p class="note">Added to the "With AI" price, per clip. Covers up to 3 generation takes. 1080p, 4K, and clips over 15 s are quoted separately.</p>
+    <div class="glass table-wrap">
+      <table class="fee">
+        <thead>
+          <tr><th>Model</th><th>Fee</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Gemini Omni 1.2 Flash<small>720p, up to 15 s</small></td><td class="price">+$5</td></tr>
+          <tr><td>Seedance 2.5<small>720p, up to 15 s</small></td><td class="price">+$12</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-  <h2>How it works</h2>
-  <div class="glass panel">
-    <ol>
-      <li><strong>Brief.</strong> Send the product, goal, length, platform, deadline, and either your footage or your preferred AI model.</li>
-      <li><strong>Idea.</strong> We send 1-2 directions (hook, script, shot list) within 24 hours.</li>
-      <li><strong>Approve.</strong> You pick a direction and pay a 50% deposit to start. Check the script and shots carefully before approving, because later changes cost extra.</li>
-      <li><strong>Produce.</strong> We edit, or generate the AI video. For AI work, one test take goes to you first.</li>
-      <li><strong>Review.</strong> Up to 2 revision rounds. Each round has a fee: regular video +$5, AI video +$10. Round 3 is quoted by video type, and we agree on it before starting.</li>
-      <li><strong>Deliver.</strong> Final files by Google Drive link. The balance is due on delivery.</li>
-    </ol>
-  </div>
-  <p class="note" style="margin-top:12px">Standard turnaround: 3-5 days. Rush (48 h): +50%.</p>
+    <h2>How it works</h2>
+    <div class="glass panel">
+      <ol>
+        <li><strong>Brief.</strong> Send the product, goal, length, platform, deadline, and either your footage or your preferred AI model.</li>
+        <li><strong>Idea.</strong> We send 1-2 directions (hook, script, shot list) within 24 hours.</li>
+        <li><strong>Approve.</strong> You pick a direction and pay a 50% deposit to start. Check the script and shots carefully before approving, because later changes cost extra.</li>
+        <li><strong>Produce.</strong> We edit, or generate the AI video. For AI work, one test take goes to you first.</li>
+        <li><strong>Review.</strong> Up to 2 revision rounds. Each round has a fee: regular video +$5, AI video +$10. Round 3 is quoted by video type, and we agree on it before starting.</li>
+        <li><strong>Deliver.</strong> Final files by Google Drive link. The balance is due on delivery.</li>
+      </ol>
+    </div>
+    <p class="note" style="margin-top:12px">Standard turnaround: 3-5 days. Rush (48 h): +50%.</p>
 
-  <div class="cols">
-    <section class="glass panel">
-      <h2>Extras</h2>
-      <ul>
-        <li>Each extra minute: +$10</li>
-        <li>Rush (48 h): +50%</li>
-        <li>Bundle of 5 videos: 15% off</li>
-        <li>Revision round 3 and later: quoted by video type, agreed first</li>
-      </ul>
-    </section>
-    <section class="glass panel">
-      <h2>Negotiation</h2>
-      <ul>
-        <li>These are list prices.</li>
-        <li>Volume and monthly deals are open for discussion.</li>
-      </ul>
-    </section>
-  </div>
+    <div class="cols">
+      <section class="glass panel">
+        <h2>Extras</h2>
+        <ul>
+          <li>Each extra minute: +$10</li>
+          <li>Rush (48 h): +50%</li>
+          <li>Bundle of 5 videos: 15% off</li>
+          <li>Revision round 3 and later: quoted by video type, agreed first</li>
+        </ul>
+      </section>
+      <section class="glass panel">
+        <h2>Negotiation</h2>
+        <ul>
+          <li>These are list prices.</li>
+          <li>Volume and monthly deals are open for discussion.</li>
+        </ul>
+      </section>
+    </div>
+  </section>
 
-  <h2>Contact</h2>
-  <div class="glass contact-panel">
-    <p class="contact"><a href="mailto:datmedia74@gmail.com">datmedia74@gmail.com</a></p>
-  </div>
+  <section id="website">
+    <h2>Website</h2>
+    <div class="glass panel">
+      <p class="soon"><strong>Coming soon.</strong> No preview yet. Contact us to discuss your website.</p>
+    </div>
+  </section>
+
+  <section id="shoot">
+    <h2>Filming &amp; Photo</h2>
+    <div class="glass panel">
+      <p class="soon"><strong>Coming soon.</strong> No preview yet. Contact us to discuss your shoot.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="glass contact-panel">
+      <p class="contact"><a href="mailto:datmedia74@gmail.com">datmedia74@gmail.com</a></p>
+    </div>
+  </section>
 
   <footer>Cryus Edit</footer>
 </main>
