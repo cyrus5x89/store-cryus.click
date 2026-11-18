@@ -113,8 +113,9 @@
   h1, h2, .brand, .nav a, .eyebrow, td.price, figcaption strong, figcaption em { font-family: var(--display); font-weight: 400; letter-spacing: .01em; }
 
   /* Samples: a sideways strip that scrolls with touch on phones and two-finger trackpad on macOS */
-  .demos { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; scrollbar-width: thin; margin: 0 -16px; padding: 4px 16px 16px; scroll-padding-inline: 16px; }
+  .demos { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 0 16px; }
   .demos > figure { flex: 0 0 176px; scroll-snap-align: start; }
+  .demos::-webkit-scrollbar { display: none; }
   .samples-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; margin: 0 0 12px; }
   .samples-bar .note { margin: 0; }
   .toggle { font: inherit; font-size: 14px; color: var(--accent-text); background: var(--surface); border: 1px solid var(--glass-border); border-radius: 999px; padding: 8px 16px; cursor: pointer; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
@@ -171,7 +172,7 @@
     .nav a { padding: 8px 12px; }
     th:nth-child(4), td:nth-child(4) { display: none; }
     .cols { grid-template-columns: 1fr; }
-    .demos { gap: 12px; }
+    .demos { gap: 12px; margin: 0 -16px; padding: 4px 16px 16px; scroll-padding-inline: 16px; }
     .demos > figure { flex-basis: 62vw; max-width: 220px; }
     .panel { padding: 16px 16px; }
     .table-wrap { padding: 8px; }
@@ -246,6 +247,10 @@
       <figure class="glass">
         <div class="frame lite" data-id="1aDEjx03scAglnhUHXnP09LsVj0MyU2k8" role="button" tabindex="0" aria-label="Play filmed video sample" style="--poster: url(posters/video-quay.jpg)"></div>
         <figcaption><strong>Video Quay</strong><span>Filmed footage</span><em>On request</em></figcaption>
+      </figure>
+      <figure class="glass">
+        <div class="frame lite" data-id="1CV-J16uWAyp7_Tw1kbD-FGR_nJsXSlUb" role="button" tabindex="0" aria-label="Play international UGC sample" style="--poster: url(posters/ugc-international.jpg)"></div>
+        <figcaption><strong>International UGC</strong><span>English-speaking creator</span><em>On request</em></figcaption>
       </figure>
     </div>
 
