@@ -363,6 +363,12 @@
     });
   });
 
+  addEventListener('resize', function () {
+    document.querySelectorAll('div.frame > iframe').forEach(function (f) {
+      f.style.transform = 'scale(' + f.parentNode.clientWidth / 360 + ')';
+    });
+  });
+
   // Kiểm tra căn lề: ?grid=48 vẽ lưới canvas 48px lên trang.
   if (new URLSearchParams(location.search).get('grid') === '48') {
     var c = document.createElement('canvas');
