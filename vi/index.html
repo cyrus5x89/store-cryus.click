@@ -66,7 +66,10 @@
     opacity: .55;
   }
   main { max-width: 880px; margin: 0 auto; padding: 24px 16px var(--grid); }
-  section { scroll-margin-top: 96px; }
+
+  /* Mỗi dịch vụ một trang: JS hiện đúng mục theo menu */
+  .page { display: none; }
+  .page.active { display: block; }
 
   /* Liquid glass surface */
   .glass {
@@ -90,13 +93,16 @@
   .brand { font-weight: 700; letter-spacing: -.01em; color: var(--fg); text-decoration: none; }
   .nav { display: flex; flex-wrap: wrap; gap: 4px; }
   .nav a { color: var(--muted); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 999px; transition: background .2s ease, color .2s ease; }
-  .nav a:hover, .nav a:focus-visible { color: var(--fg); background: rgba(178, 213, 229, .16); }
+  .nav a:hover, .nav a:focus-visible, .nav a.current { color: var(--fg); background: rgba(178, 213, 229, .16); }
+  .tools { display: flex; align-items: center; gap: 12px; }
+  .mail { font-size: 14px; color: var(--accent-text); text-decoration: none; font-weight: 600; }
   .lang { display: inline-block; font-size: 14px; color: var(--muted); padding: 8px 16px; border: 1px solid var(--glass-border); border-radius: 999px; background: var(--surface); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
   .lang a { color: var(--muted); text-decoration: none; }
   .lang strong { color: var(--fg); }
   .eyebrow { margin: 0 0 8px; color: var(--accent-text); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
   h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; margin: 0 0 12px; letter-spacing: -.01em; }
   h2 { font-size: 20px; margin: var(--grid) 0 12px; }
+  .page > h2:first-child { margin-top: 0; }
   .lead { color: var(--muted); margin: 0; max-width: 60ch; }
   .note { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
   a { color: var(--accent-text); }
@@ -137,21 +143,22 @@
   li strong { color: var(--fg); }
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
   .cols .panel h2 { margin-top: 0; }
-  .contact { margin: 0; font-size: 18px; font-weight: 600; }
-  .contact-panel { padding: 20px 24px; }
   .soon { margin: 0; color: var(--muted); }
   footer { margin-top: var(--grid); padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
 
   @media (prefers-reduced-motion: reduce) { figure, .nav a { transition: none; } }
   @media (max-width: 560px) {
     main { padding: 16px 16px 32px; }
-    .topbar { border-radius: 22px; padding: 12px 14px; }
-    .nav { order: 3; width: 100%; justify-content: space-between; }
+    .topbar { position: static; border-radius: 22px; padding: 12px 14px; }
+    .tools { display: contents; }
+    .lang { order: 1; }
+    .nav { order: 2; width: 100%; justify-content: space-between; }
+    .mail { order: 3; width: 100%; text-align: center; }
     .nav a { padding: 8px 12px; }
     th:nth-child(4), td:nth-child(4) { display: none; }
     .cols { grid-template-columns: 1fr; }
     .demos { gap: 12px; }
-    .panel, .contact-panel { padding: 16px 16px; }
+    .panel { padding: 16px 16px; }
     .table-wrap { padding: 8px; }
   }
 </style>
@@ -159,21 +166,25 @@
 <body>
 <main>
   <div class="glass topbar">
-      <a class="brand" href="#">Cryus Edit</a>
-      <nav class="nav" aria-label="Dịch vụ">
-        <a href="#edit">Edit</a>
-        <a href="#website">Website</a>
-        <a href="#shoot">Quay / chụp</a>
-      </nav>
+    <a class="brand" href="#edit">Cryus Edit</a>
+    <nav class="nav" aria-label="Dịch vụ">
+      <a href="#edit" class="current">Edit</a>
+      <a href="#website">Website</a>
+      <a href="#shoot">Quay / chụp</a>
+    </nav>
+    <div class="tools">
+      <a class="mail" href="mailto:datmedia74@gmail.com">datmedia74@gmail.com</a>
       <nav class="lang" aria-label="Ngôn ngữ"><a href="../">EN</a> · <strong>VI</strong></nav>
+    </div>
   </div>
+
   <header>
     <p class="eyebrow">Cryus Edit</p>
     <h1>Dựng video &amp; sản xuất video AI cho quảng cáo, creator và thương hiệu</h1>
     <p class="lead">Video ngắn bắt mắt, tối ưu giữ chân người xem. Xem các video mẫu bên dưới và chọn gói dịch vụ phù hợp.</p>
   </header>
 
-  <section id="edit">
+  <section id="edit" class="page active">
     <h2>Video thực tế</h2>
     <p class="note">Video lưu trên Google Drive. Bấm vào khung để xem.</p>
     <div class="demos">
@@ -262,30 +273,35 @@
     </div>
   </section>
 
-  <section id="website">
+  <section id="website" class="page">
     <h2>Website</h2>
     <div class="glass panel">
-      <p class="soon"><strong>Sắp có.</strong> Chưa có mẫu để xem. Liên hệ để trao đổi về nhu cầu website của bạn.</p>
+      <p class="soon"><strong>Sắp có.</strong> Chưa có mẫu để xem. Gửi email để trao đổi về nhu cầu website của bạn.</p>
     </div>
   </section>
 
-  <section id="shoot">
+  <section id="shoot" class="page">
     <h2>Quay / chụp</h2>
     <div class="glass panel">
-      <p class="soon"><strong>Sắp có.</strong> Chưa có mẫu để xem. Liên hệ để trao đổi về buổi quay hoặc chụp của bạn.</p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Liên hệ</h2>
-    <div class="glass contact-panel">
-      <p class="contact"><a href="mailto:datmedia74@gmail.com">datmedia74@gmail.com</a></p>
+      <p class="soon"><strong>Sắp có.</strong> Chưa có mẫu để xem. Gửi email để trao đổi về buổi quay hoặc chụp của bạn.</p>
     </div>
   </section>
 
   <footer>Cryus Edit</footer>
 </main>
 <script>
+  // Mỗi dịch vụ một trang: hash trên menu quyết định mục nào được hiện.
+  var pages = ['edit', 'website', 'shoot'];
+  function showPage(scroll) {
+    var id = location.hash.slice(1);
+    if (pages.indexOf(id) < 0) id = 'edit';
+    document.querySelectorAll('.page').forEach(function (s) { s.classList.toggle('active', s.id === id); });
+    document.querySelectorAll('.nav a').forEach(function (a) { a.classList.toggle('current', a.getAttribute('href') === '#' + id); });
+    if (scroll) window.scrollTo(0, 0);
+  }
+  addEventListener('hashchange', function () { showPage(true); });
+  showPage(false);
+
   // Lite embed: ảnh poster trước, trình phát Drive chỉ tải khi bấm.
   document.querySelectorAll('.frame.lite').forEach(function (el) {
     function open() {
