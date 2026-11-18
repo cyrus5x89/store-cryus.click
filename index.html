@@ -89,9 +89,9 @@
   .topbar { position: sticky; top: 12px; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding: 10px 12px 10px 18px; margin: 0 0 40px; border-radius: 999px; }
   .brand { font-weight: 700; letter-spacing: -.01em; color: var(--fg); text-decoration: none; }
   .nav { display: flex; flex-wrap: wrap; gap: 4px; }
-  .nav a { color: var(--muted); text-decoration: none; font-size: 14px; padding: 6px 12px; border-radius: 999px; transition: background .2s ease, color .2s ease; }
+  .nav a { color: var(--muted); text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 999px; transition: background .2s ease, color .2s ease; }
   .nav a:hover, .nav a:focus-visible { color: var(--fg); background: rgba(178, 213, 229, .16); }
-  .lang { display: inline-block; font-size: 14px; color: var(--muted); padding: 6px 14px; border: 1px solid var(--glass-border); border-radius: 999px; background: var(--surface); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .lang { display: inline-block; font-size: 14px; color: var(--muted); padding: 8px 16px; border: 1px solid var(--glass-border); border-radius: 999px; background: var(--surface); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
   .lang a { color: var(--muted); text-decoration: none; }
   .lang strong { color: var(--fg); }
   .eyebrow { margin: 0 0 8px; color: var(--accent-text); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
@@ -145,9 +145,9 @@
   @media (prefers-reduced-motion: reduce) { figure, .nav a { transition: none; } }
   @media (max-width: 560px) {
     main { padding: 16px 16px 32px; }
-    .topbar { border-radius: 22px; padding: 10px 12px; }
+    .topbar { border-radius: 22px; padding: 12px 14px; }
     .nav { order: 3; width: 100%; justify-content: space-between; }
-    .nav a { padding: 6px 10px; }
+    .nav a { padding: 8px 12px; }
     th:nth-child(4), td:nth-child(4) { display: none; }
     .cols { grid-template-columns: 1fr; }
     .demos { gap: 12px; }
