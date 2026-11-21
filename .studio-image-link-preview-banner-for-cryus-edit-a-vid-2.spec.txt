@@ -1,0 +1,10 @@
+Use case: ads-marketing
+Asset type: website hero 16:9
+Primary request: Link-preview banner for Cryus Edit, a video editing and AI video studio. Onyx near-black background (#020202) with a soft Candy Blue (#B2D5E5) glow. One large frosted liquid glass rounded panel on the left: translucent, soft white highlight along its top edge, faint refraction, subtle light border. Inside the panel, the wordmark Cryus Edit in large bold type and a short tagline below it. On the right, minimal abstract video timeline bars and film-frame strips in Candy Blue suggesting editing. Clean, premium, lots of negative space. No people, no faces, no emoji, no logos.
+Scene/backdrop: seamless studio backdrop
+Style/medium: high-end commercial finish, crisp detail, controlled reflections
+Composition/framing: wide composition with empty space for page copy; ad layout with integrated headline space; aspect ratio 16:9
+Lighting/mood: large softbox key light, soft fill, gentle shadow
+Text (verbatim): "Cryus Edit
+Video editing & AI video for ads, creators and brands"
+Constraints: render the tagline exactly once if given; clean legible typography; no extra text; no unrelated logos; no watermark
