@@ -79,7 +79,11 @@
   addEventListener('keydown', function (e) {
     if (box.hidden) return;
     if (e.key === 'Escape') closeBox();
-    if (e.key === 'Tab') { e.preventDefault(); box.querySelector('.lightbox-close').focus(); }
+    if (e.key === 'Tab') {  // keep focus inside: the player and the close button
+      e.preventDefault();
+      var close = box.querySelector('.lightbox-close'), f = box.querySelector('iframe');
+      (document.activeElement === close && f ? f : close).focus();
+    }
   });
   document.querySelectorAll('.play').forEach(function (el) {
     el.addEventListener('click', function () {

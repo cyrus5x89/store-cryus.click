@@ -6,7 +6,7 @@
 A sample plays from YouTube when the manifest has its link (else from Drive). Posters: posters/<slug>.jpg; a
 missing one is copied from --posters/<driveId>.jpg. Writes between <!-- samples --> and <!-- /samples -->.
 """
-import argparse, html, json, re, shutil
+import argparse, html, json, re, shutil, sys
 from pathlib import Path
 
 R = Path(__file__).resolve().parent.parent
@@ -53,15 +53,16 @@ for lang, page, pre in (("en", R / "index.html", ""), ("vi", R / "vi/index.html"
             continue
         title, desc, price = (html.escape(x) for x in s[lang])
         src = f'data-yt="{yt[s["drive"]]}"' if s["drive"] in yt else f'data-drive="{s["drive"]}"'
-        extra = " data-extra" if s.get("extra") else ""
         out.append(
-            f'      <li class="card" data-cat="{s["cat"]}"{extra}>\n'
+            f'      <li class="card" data-cat="{s["cat"]}">\n'
             f'        <button class="play" type="button" {src} aria-label="{LABEL[lang].format(title)}">'
             f'<img src="{pre}posters/{poster[s["slug"]]}.jpg" alt="" width="540" height="960" loading="lazy"></button>\n'
             f'        <h3>{title}</h3><p>{desc}</p><div class="meta"><span class="caps">{CAT[lang][s["cat"]]}</span><b>{price}</b></div>\n'
             f'      </li>')
     text = page.read_text(encoding="utf-8")
-    text = re.sub(r"(<!-- samples -->\n).*?(\s*<!-- /samples -->)", lambda m: m.group(1) + "\n".join(out) + m.group(2), text, flags=re.S)
+    text, n = re.subn(r"(<!-- samples -->\n).*?(\s*<!-- /samples -->)", lambda m: m.group(1) + "\n".join(out) + m.group(2), text, flags=re.S)
+    if n != 1:
+        sys.exit(f"{page}: expected one <!-- samples --> ... <!-- /samples --> block, found {n}")
     page.write_text(text, encoding="utf-8")
 
 print(json.dumps({"cards": len(samples) - len(missing), "youtube": sum(s["drive"] in yt for s in samples), "missing_posters": missing}))

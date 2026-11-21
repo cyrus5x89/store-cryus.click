@@ -146,5 +146,5 @@
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
-    html { scroll-behavior: auto; }
+    html, .rail { scroll-behavior: auto; }
   }
