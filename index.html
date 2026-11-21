@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=6">
+<link rel="stylesheet" href="site.css?v=7">
 </head>
 <body>
 <main>
@@ -53,7 +53,7 @@
       <button class="chip" type="button" data-cat="motion" aria-pressed="false">Motion</button>
       <button class="chip" type="button" data-cat="asmr" aria-pressed="false">ASMR</button>
     </div>
-    <ul class="grid" id="samples">
+    <ul class="rail" id="samples">
 <!-- samples -->
       <li class="card" data-cat="ugc">
         <button class="play" type="button" data-yt="WbMTr-tHwks" aria-label="Play This Is Brad"><img src="posters/this-is-brad.jpg" alt="" width="540" height="960" loading="lazy"></button>
@@ -128,7 +128,7 @@
         <h3>ASMR, black and beige</h3><p>Product sound only</p><div class="meta"><span class="caps">ASMR</span><b>On request</b></div>
       </li><!-- /samples -->
     </ul>
-    <button class="btn ghost more" id="more" type="button" hidden>Show all samples</button>
+    <nav class="dots" id="dots" aria-label="Sample pages"></nav>
   </section>
 
   <section id="prices" aria-labelledby="prices-title">
@@ -223,6 +223,6 @@
     <footer><span>Cryus Edit</span><span><strong>EN</strong> · <a href="vi/" hreflang="vi">VI</a></span></footer>
   </div>
 </section>
-<script src="site.js?v=6"></script>
+<script src="site.js?v=7"></script>
 </body>
 </html>

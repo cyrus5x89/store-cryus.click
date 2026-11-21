@@ -4,30 +4,59 @@
   cell(); addEventListener('resize', cell);
   if (/[?&]grid=48\b/.test(location.search)) root.classList.add('grid48');
 
-  // Sample filter: chips toggle cards by data-cat. Without JS every card shows.
-  var grid = document.getElementById('samples');
-  var more = document.getElementById('more');
+  // Sample rail: chips filter by data-cat; dots page through 3 cards (2 on phones). Swipe / trackpad scroll works too.
+  var rail = document.getElementById('samples');
+  var dots = document.getElementById('dots');
   var chips = document.querySelectorAll('.chip');
-  var showAll = false;
-  function apply() {
+  var vi = document.documentElement.lang === 'vi';
+  function shown() { return [].filter.call(rail.querySelectorAll('.card'), function (c) { return !c.hidden; }); }
+  function perPage() {
+    var c = shown()[0]; if (!c) return 1;
+    var gap = parseFloat(getComputedStyle(rail).columnGap) || 0;
+    return Math.max(1, Math.round((rail.clientWidth + gap) / (c.offsetWidth + gap)));
+  }
+  function pageNow() {
+    var cards = shown(), per = perPage(), pages = Math.ceil(cards.length / per);
+    if (rail.scrollLeft >= rail.scrollWidth - rail.clientWidth - 2) return pages - 1;
+    var i = 0;
+    for (var p = 0; p < pages; p++) if (cards[p * per].offsetLeft <= rail.scrollLeft + 2) i = p;
+    return i;
+  }
+  function mark() {
+    var i = pageNow();
+    [].forEach.call(dots.children, function (d, k) { d.setAttribute('aria-current', String(k === i)); });
+  }
+  function buildDots() {
+    var cards = shown(), per = perPage(), pages = Math.ceil(cards.length / per);
+    dots.replaceChildren();
+    dots.hidden = pages < 2;
+    for (var p = 0; p < pages; p++) {
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.setAttribute('aria-label', (vi ? 'Trang ' : 'Page ') + (p + 1));
+      d.addEventListener('click', (function (p) { return function () { rail.scrollTo({ left: shown()[p * perPage()].offsetLeft }); }; })(p));
+      dots.appendChild(d);
+    }
+    mark();
+  }
+  function filter() {
     var cat = document.querySelector('.chip[aria-pressed="true"]').dataset.cat;
-    var hiddenExtras = 0;
-    grid.querySelectorAll('.card').forEach(function (c) {
-      var match = cat === 'all' || c.dataset.cat === cat;
-      var extra = c.hasAttribute('data-extra') && cat === 'all' && !showAll;
-      if (match && extra) hiddenExtras++;
-      c.hidden = !match || extra;
-    });
-    if (more) more.hidden = hiddenExtras === 0;
+    rail.querySelectorAll('.card').forEach(function (c) { c.hidden = cat !== 'all' && c.dataset.cat !== cat; });
+    rail.scrollLeft = 0;
+    buildDots();
   }
   chips.forEach(function (chip) {
     chip.addEventListener('click', function () {
       chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
-      apply();
+      filter();
     });
   });
-  if (more) more.addEventListener('click', function () { showAll = true; apply(); });
-  if (grid) apply();
+  if (rail && dots) {
+    var t;
+    rail.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(mark, 60); }, { passive: true });
+    addEventListener('resize', buildDots);
+    filter();
+  }
 
   // Lightbox: the poster shows first; the YouTube player loads only on tap.
   var opener;
