@@ -1,21 +1,281 @@
 [
- {"drive": "1CV-J16uWAyp7_Tw1kbD-FGR_nJsXSlUb", "slug": "this-is-brad", "cat": "ugc", "en": ["This Is Brad", "International UGC, English-speaking creator", "From $10"], "vi": ["This Is Brad", "UGC quốc tế, creator nói tiếng Anh", "Từ $10"]},
- {"drive": "1ChYAYzRmGsgafRvuCCMm8z8-V-Dq0fQ4", "slug": "black-friday", "cat": "ads", "en": ["Black Friday, 2 hosts", "Meta sale ad with two presenters", "On request"], "vi": ["Black Friday, 2 MC", "Quảng cáo sale trên Meta, hai người dẫn", "Báo giá riêng"]},
- {"drive": "1Dmc73qUovKvxWZnsee2c2e-Tgw_4gIPB", "slug": "vip-11-11", "cat": "ads", "en": ["11.11 sale", "TikTok ad, Vietnamese", "On request"], "vi": ["Sale 11.11", "Quảng cáo TikTok, tiếng Việt", "Báo giá riêng"]},
- {"drive": "1_vcpfGdxhUAM4mWTvZEfxN376J46DKhQ", "slug": "dog-seat-ai", "cat": "ai", "en": ["Dog seat cover", "AI-generated product video", "On request"], "vi": ["Áo ghế cho chó", "Video sản phẩm tạo bằng AI", "Báo giá riêng"]},
- {"drive": "1OXOwCn41_zzfOne5k1NEwhC5j-mdf4Fe", "slug": "coffee-2-5d", "cat": "motion", "en": ["Coffee, gut and brain", "2.5D explainer", "$50 / 30 s"], "vi": ["Cà phê, ruột và não", "Video giải thích 2.5D", "$50 / 30 s"]},
- {"drive": "1J3FIUL8aNveXHi1twIa9HFQ4Rhoi6mRR", "slug": "talking-head", "cat": "talking", "en": ["Talking head", "Tight cuts, word captions (Vietnamese)", "From $20"], "vi": ["Talking head", "Cắt nhịp chặt, phụ đề từng chữ", "Từ $20"]},
- {"drive": "1BuWizvljoYq9TpTMN3lXQ958Pi2RWB16", "slug": "asmr-black-red", "cat": "asmr", "en": ["ASMR, black and red", "Product sound only, no voice", "On request"], "vi": ["ASMR đen đỏ", "Chỉ có tiếng sản phẩm, không lời", "Báo giá riêng"]},
- {"drive": "1ZDlUkHjY2deSe7CjZ_yTsZkhxEV7LFqw", "slug": "story-intro", "cat": "motion", "en": ["Intro story", "Animated story", "On request"], "vi": ["Intro kể chuyện", "Phim hoạt hình kể chuyện", "Báo giá riêng"]},
- {"drive": "1xL1iuWioVVi_3TxM_Q7LjKkNwVQ_nbTC", "slug": "tesla-motion", "cat": "motion", "en": ["Tesla motion graphic", "Motion graphic", "$10 / 10 s"], "vi": ["Motion graphic Tesla", "Motion graphic", "$10 / 10 s"]},
- {"drive": "1p9pjjGPeXxyqA8S3aKXoraft8uNAAS96", "slug": "ugc-sidney", "cat": "ugc", "extra": true, "en": ["UGC re-edit", "Real presenter, captions, product call-outs", "From $10"], "vi": ["UGC dựng lại", "Người thật, phụ đề, chú thích sản phẩm", "Từ $10"]},
- {"drive": "1P6zO1LPGnvpARgA3yNQMuKy0ArRDQyTo", "slug": "sell-car", "cat": "ugc", "extra": true, "en": ["Before you sell your car", "UGC hook ad", "From $10"], "vi": ["Trước khi bán xe", "Quảng cáo UGC mở bằng hook", "Từ $10"]},
- {"drive": "1MVoV-DpjTMRpPx8aL22xXBsv3T3f43nJ", "slug": "royal-saas", "cat": "motion", "extra": true, "en": ["Royal, app-style ad", "Motion ad, 9:16", "On request"], "vi": ["Royal, quảng cáo kiểu app", "Quảng cáo motion, 9:16", "Báo giá riêng"]},
- {"drive": "19dvaJhyyAMOmsiimbjwvYho-8PuHXtW2", "slug": "vip-saas", "cat": "motion", "extra": true, "en": ["VIP, app-style ad", "Motion ad, 9:16", "On request"], "vi": ["VIP, quảng cáo kiểu app", "Quảng cáo motion, 9:16", "Báo giá riêng"]},
- {"drive": "1zScLoFnwon_FRhR3qlYZnoUGl1lJoJzK", "slug": "lunch-break", "cat": "ads", "extra": true, "en": ["Seat vs lunch break", "Product ad", "On request"], "vi": ["Áo ghế và bữa trưa", "Quảng cáo sản phẩm", "Báo giá riêng"]},
- {"drive": "1e_XJHtyOakLhBAFtJneBJCBbULXNLlUt", "slug": "protect-seat", "cat": "ads", "extra": true, "en": ["Protect your seat", "Product ad", "On request"], "vi": ["Bảo vệ ghế xe", "Quảng cáo sản phẩm", "Báo giá riêng"]},
- {"drive": "1OMooJscLxIS87Q-b2AQ7RBJfJQVFaUmh", "slug": "hook-ford", "cat": "ads", "extra": true, "en": ["Hook test, Ford", "Opening hook variant", "On request"], "vi": ["Thử hook, Ford", "Một phương án mở đầu", "Báo giá riêng"]},
- {"drive": "1uhZTUfunwiadp_8KwmJp8X5FaoJ_UxHk", "slug": "mia-riley", "cat": "ads", "extra": true, "en": ["Mia and Riley", "Pet owner product story", "On request"], "vi": ["Mia và Riley", "Câu chuyện sản phẩm với thú cưng", "Báo giá riêng"]},
- {"drive": "16tWtI99rw6E74Dxg9f_xD3rgZAm5qtVI", "slug": "love-my-dog", "cat": "ads", "extra": true, "en": ["I love my dog", "Short product ad", "On request"], "vi": ["I love my dog", "Quảng cáo sản phẩm ngắn", "Báo giá riêng"]},
- {"drive": "1lglIluC2Fo-zTRS4FaKfWzN1ovXE3cD3", "slug": "asmr-beige", "cat": "asmr", "extra": true, "en": ["ASMR, black and beige", "Product sound only", "On request"], "vi": ["ASMR đen be", "Chỉ có tiếng sản phẩm", "Báo giá riêng"]}
+ {
+  "drive": "1CV-J16uWAyp7_Tw1kbD-FGR_nJsXSlUb",
+  "slug": "this-is-brad",
+  "cat": "ugc",
+  "en": [
+   "This Is Brad",
+   "International UGC, English-speaking creator",
+   "From $10"
+  ],
+  "vi": [
+   "This Is Brad",
+   "UGC quốc tế, creator nói tiếng Anh",
+   "Từ $10"
+  ]
+ },
+ {
+  "drive": "1ChYAYzRmGsgafRvuCCMm8z8-V-Dq0fQ4",
+  "slug": "black-friday",
+  "cat": "ads",
+  "en": [
+   "Black Friday, 2 hosts",
+   "Meta sale ad with two presenters",
+   "On request"
+  ],
+  "vi": [
+   "Black Friday, 2 MC",
+   "Quảng cáo sale trên Meta, hai người dẫn",
+   "Báo giá riêng"
+  ]
+ },
+ {
+  "drive": "1Dmc73qUovKvxWZnsee2c2e-Tgw_4gIPB",
+  "slug": "vip-11-11",
+  "cat": "ads",
+  "en": [
+   "11.11 sale",
+   "TikTok ad, Vietnamese",
+   "On request"
+  ],
+  "vi": [
+   "Sale 11.11",
+   "Quảng cáo TikTok, tiếng Việt",
+   "Báo giá riêng"
+  ]
+ },
+ {
+  "drive": "1_vcpfGdxhUAM4mWTvZEfxN376J46DKhQ",
+  "slug": "dog-seat-ai",
+  "cat": "ai",
+  "en": [
+   "Dog seat cover",
+   "AI-generated product video",
+   "On request"
+  ],
+  "vi": [
+   "Áo ghế cho chó",
+   "Video sản phẩm tạo bằng AI",
+   "Báo giá riêng"
+  ]
+ },
+ {
+  "drive": "1OXOwCn41_zzfOne5k1NEwhC5j-mdf4Fe",
+  "slug": "coffee-2-5d",
+  "cat": "motion",
+  "en": [
+   "Coffee, gut and brain",
+   "2.5D explainer",
+   "$50 / 30 s"
+  ],
+  "vi": [
+   "Cà phê, ruột và não",
+   "Video giải thích 2.5D",
+   "$50 / 30 s"
+  ]
+ },
+ {
+  "drive": "1J3FIUL8aNveXHi1twIa9HFQ4Rhoi6mRR",
+  "slug": "talking-head",
+  "cat": "talking",
+  "en": [
+   "Talking head",
+   "Tight cuts, word captions (Vietnamese)",
+   "From $20"
+  ],
+  "vi": [
+   "Talking head",
+   "Cắt nhịp chặt, phụ đề từng chữ",
+   "Từ $20"
+  ]
+ },
+ {
+  "drive": "1BuWizvljoYq9TpTMN3lXQ958Pi2RWB16",
+  "slug": "asmr-black-red",
+  "cat": "asmr",
+  "en": [
+   "ASMR, black and red",
+   "Product sound only, no voice",
+   "On request"
+  ],
+  "vi": [
+   "ASMR đen đỏ",
+   "Chỉ có tiếng sản phẩm, không lời",
+   "Báo giá riêng"
+  ]
+ },
+ {
+  "drive": "1ZDlUkHjY2deSe7CjZ_yTsZkhxEV7LFqw",
+  "slug": "story-intro",
+  "cat": "motion",
+  "en": [
+   "Intro story",
+   "Animated story",
+   "On request"
+  ],
+  "vi": [
+   "Intro kể chuyện",
+   "Phim hoạt hình kể chuyện",
+   "Báo giá riêng"
+  ]
+ },
+ {
+  "drive": "1xL1iuWioVVi_3TxM_Q7LjKkNwVQ_nbTC",
+  "slug": "tesla-motion",
+  "cat": "motion",
+  "en": [
+   "Tesla motion graphic",
+   "Motion graphic",
+   "$10 / 10 s"
+  ],
+  "vi": [
+   "Motion graphic Tesla",
+   "Motion graphic",
+   "$10 / 10 s"
+  ]
+ },
+ {
+  "drive": "1p9pjjGPeXxyqA8S3aKXoraft8uNAAS96",
+  "slug": "ugc-sidney",
+  "cat": "ugc",
+  "extra": true,
+  "en": [
+   "UGC re-edit",
+   "Real presenter, captions, product call-outs",
+   "From $10"
+  ],
+  "vi": [
+   "UGC dựng lại",
+   "Người thật, phụ đề, chú thích sản phẩm",
+   "Từ $10"
+  ]
+ },
+ {
+  "drive": "1P6zO1LPGnvpARgA3yNQMuKy0ArRDQyTo",
+  "slug": "sell-car",
+  "cat": "ugc",
+  "extra": true,
+  "en": [
+   "Before you sell your car",
+   "UGC hook ad",
+   "From $10"
+  ],
+  "vi": [
+   "Trước khi bán xe",
+   "Quảng cáo UGC mở bằng hook",
+   "Từ $10"
+  ]
+ },
+ {
+  "drive": "1MVoV-DpjTMRpPx8aL22xXBsv3T3f43nJ",
+  "slug": "royal-saas",
+  "cat": "motion",
+  "extra": true,
+  "en": [
+   "Royal, app-style ad",
+   "Motion ad, 9:16",
+   "On request"
+  ],
+  "vi": [
+   "Royal, quảng cáo kiểu app",
+   "Quảng cáo motion, 9:16",
+   "Báo giá riêng"
+  ]
+ },
+ {
+  "drive": "19dvaJhyyAMOmsiimbjwvYho-8PuHXtW2",
+  "slug": "vip-saas",
+  "cat": "motion",
+  "extra": true,
+  "en": [
+   "VIP, app-style ad",
+   "Motion ad, 9:16",
+   "On request"
+  ],
+  "vi": [
+   "VIP, quảng cáo kiểu app",
+   "Quảng cáo motion, 9:16",
+   "Báo giá riêng"
+  ]
+ },
+ {
+  "drive": "1zScLoFnwon_FRhR3qlYZnoUGl1lJoJzK",
+  "slug": "lunch-break",
+  "cat": "ads",
+  "extra": true,
+  "en": [
+   "Seat vs lunch break",
+   "Product ad",
+   "On request"
+  ],
+  "vi": [
+   "Áo ghế và bữa trưa",
+   "Quảng cáo sản phẩm",
+   "Báo giá riêng"
+  ]
+ },
+ {
+  "drive": "1OMooJscLxIS87Q-b2AQ7RBJfJQVFaUmh",
+  "slug": "hook-ford",
+  "cat": "ads",
+  "extra": true,
+  "en": [
+   "Hook test, Ford",
+   "Opening hook variant",
+   "On request"
+  ],
+  "vi": [
+   "Thử hook, Ford",
+   "Một phương án mở đầu",
+   "Báo giá riêng"
+  ]
+ },
+ {
+  "drive": "1uhZTUfunwiadp_8KwmJp8X5FaoJ_UxHk",
+  "slug": "mia-riley",
+  "cat": "ads",
+  "extra": true,
+  "en": [
+   "Mia and Riley",
+   "Pet owner product story",
+   "On request"
+  ],
+  "vi": [
+   "Mia và Riley",
+   "Câu chuyện sản phẩm với thú cưng",
+   "Báo giá riêng"
+  ]
+ },
+ {
+  "drive": "16tWtI99rw6E74Dxg9f_xD3rgZAm5qtVI",
+  "slug": "love-my-dog",
+  "cat": "ads",
+  "extra": true,
+  "en": [
+   "I love my dog",
+   "Short product ad",
+   "On request"
+  ],
+  "vi": [
+   "I love my dog",
+   "Quảng cáo sản phẩm ngắn",
+   "Báo giá riêng"
+  ]
+ },
+ {
+  "drive": "1lglIluC2Fo-zTRS4FaKfWzN1ovXE3cD3",
+  "slug": "asmr-beige",
+  "cat": "asmr",
+  "extra": true,
+  "en": [
+   "ASMR, black and beige",
+   "Product sound only",
+   "On request"
+  ],
+  "vi": [
+   "ASMR đen be",
+   "Chỉ có tiếng sản phẩm",
+   "Báo giá riêng"
+  ]
+ }
 ]
