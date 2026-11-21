@@ -1,3 +1,9 @@
+  // --cell = content width / 48, measured (CSS 100vw counts the scrollbar). ?grid=48 shows the overlay.
+  var root = document.documentElement, mainEl = document.querySelector('main');
+  function cell() { if (mainEl) root.style.setProperty('--cell', (mainEl.clientWidth - 32) / 48 + 'px'); }
+  cell(); addEventListener('resize', cell);
+  if (/[?&]grid=48\b/.test(location.search)) root.classList.add('grid48');
+
   // Sample filter: chips toggle cards by data-cat. Without JS every card shows.
   var grid = document.getElementById('samples');
   var more = document.getElementById('more');
